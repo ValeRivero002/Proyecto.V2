@@ -1,15 +1,16 @@
-<html>
-  <body>
-    <h1>Sumador</h1>
-    <form id="sumar-form">
-      <label for="primer-numero">Primer número:</label>
-      <input type="number" id="primer-numero" />
-      <label for="segundo-numero">Segundo número:</label>
-      <input type="number" id="segundo-numero" />
-      <input type="submit" value="Sumar" id="sumar-button" />
-    </form>
-    <div id="resultado-div"></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/styles.css">
+  <title>Lista de Proyectos</title>
+</head>
+<body>
+  <h1>Lista de Proyectos</h1>
+  <button id="agregar-proyecto">Agregar Proyecto</button>
+  <ul id="proyectos-lista"></ul>
 
-    <script type="module" src="./src/presenter.js"></script>
-  </body>
+  <script type="module" src="./src/presenter.js"></script>
+</body>
 </html>
