@@ -10,7 +10,19 @@
   <h1>Lista de Proyectos</h1>
   <button id="agregar-proyecto">Agregar Proyecto</button>
   <ul id="proyectos-lista"></ul>
-
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Agregar Proyecto</h2>
+      <form id="agregar-proyecto-form">
+        <label for="nombre-proyecto">Nombre del Proyecto:</label>
+        <input type="text" id="nombre-proyecto" required />
+        <label for="descripcion-proyecto">Descripción del Proyecto:</label>
+        <textarea id="descripcion-proyecto" required></textarea>
+        <input type="submit" value="Agregar"/>
+      </form>
+    </div>
+  </div>
   <script type="module" src="./src/presenter.js"></script>
 </body>
 </html>
