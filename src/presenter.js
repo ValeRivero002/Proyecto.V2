@@ -22,3 +22,12 @@ window.onclick = function(event) {
     modal.style.display = 'none';
   }
 }
+agregarProyectoForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const nombreProyecto = document.getElementById('nombre-proyecto').value;
+  const descripcionProyecto = document.getElementById('descripcion-proyecto').value;
+  agregarProyecto(nombreProyecto, descripcionProyecto, proyectosLista); // Llamamos a la función agregarProyecto con la lista de proyectos como argumento
+  modal.style.display = 'none';
+  // Limpiar el formulario después de agregar el proyecto
+  agregarProyectoForm.reset();
+});
