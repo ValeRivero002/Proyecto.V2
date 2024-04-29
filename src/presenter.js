@@ -1,4 +1,4 @@
-import { agregarProyecto } from "./tdd";
+import { agregarProyecto, eliminarProyecto } from "./tdd";
 
 // Función para mostrar el modal
 function mostrarModal() {
@@ -22,10 +22,19 @@ function manejarEnvioFormulario(event) {
   event.preventDefault();
   const nombreProyecto = document.getElementById('nombre-proyecto').value;
   const descripcionProyecto = document.getElementById('descripcion-proyecto').value;
-  agregarProyecto(nombreProyecto, descripcionProyecto, proyectosLista);
+  agregarProyectoConBoton(nombreProyecto, descripcionProyecto, proyectosLista);
   cerrarModal();
   // Limpiar el formulario después de agregar el proyecto
   agregarProyectoForm.reset();
+}
+
+// Función para agregar un proyecto a la lista con un botón de eliminar
+function agregarProyectoConBoton(nombre, descripcion, listaProyectos) {
+  const nuevoProyecto = document.createElement('li');
+  nuevoProyecto.textContent = `${nombre}: ${descripcion}`;
+  //
+  // Agregar el proyecto a la lista
+  listaProyectos.appendChild(nuevoProyecto);
 }
 
 // Obtener referencias a los elementos del DOM

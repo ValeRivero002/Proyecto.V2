@@ -3,3 +3,6 @@ export function agregarProyecto(nombre, descripcion, listaProyectos) {
   nuevoProyecto.textContent = `${nombre}: ${descripcion}`;
   listaProyectos.appendChild(nuevoProyecto);
 }
+export function eliminarProyecto(proyecto, listaProyectos) {
+  listaProyectos.removeChild(proyecto);
+}
