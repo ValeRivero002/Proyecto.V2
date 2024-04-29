@@ -1,44 +1,44 @@
 import { agregarProyecto, eliminarProyecto } from "./tdd";
 
+// Obtener referencias a los elementos del DOM
+const modal = document.getElementById('modal');
+const agregarProyectoBtn = document.getElementById('agregar-proyecto');
+const cerrarModalBtn = document.querySelector('.close');
+const proyectosLista = document.getElementById('proyectos-lista');
+const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
+
 // Función para mostrar el modal
-function mostrarModal() {
-  modal.style.display = 'block';
-}
+const mostrarModal = () => modal.style.display = 'block';
 
 // Función para cerrar el modal
-function cerrarModal() {
-  modal.style.display = 'none';
-}
+const cerrarModal = () => modal.style.display = 'none';
 
 // Función para manejar el clic fuera del modal
-function clicFueraDelModal(event) {
-  if (event.target == modal) {
+const clicFueraDelModal = (event) => {
+  if (event.target === modal) {
     cerrarModal();
   }
-}
+};
 
 // Función para manejar el envío del formulario de agregar proyecto
-function manejarEnvioFormulario(event) {
+const manejarEnvioFormulario = (event) => {
   event.preventDefault();
   const nombreProyecto = document.getElementById('nombre-proyecto').value;
   const descripcionProyecto = document.getElementById('descripcion-proyecto').value;
-  agregarProyectoConBoton(nombreProyecto, descripcionProyecto, proyectosLista);
+  agregarProyectoConBoton(nombreProyecto, descripcionProyecto);
   cerrarModal();
-  // Limpiar el formulario después de agregar el proyecto
-  agregarProyectoForm.reset();
-}
+  event.target.reset(); // Limpiar el formulario después de agregar el proyecto
+};
+
 // Función para agregar un proyecto a la lista con un botón de eliminar
-function agregarProyectoConBoton(nombre, descripcion, listaProyectos) {
-  // Crear un contenedor para el proyecto
+const agregarProyectoConBoton = (nombre, descripcion) => {
   const contenedorProyecto = document.createElement('div');
   contenedorProyecto.classList.add('proyecto');
 
-  // Crear el título del proyecto
   const tituloProyecto = document.createElement('h3');
   tituloProyecto.classList.add('proyecto-titulo');
   tituloProyecto.textContent = nombre;
 
-  // Crear la descripción del proyecto
   const descripcionProyecto = document.createElement('p');
   descripcionProyecto.classList.add('proyecto-descripcion');
   descripcionProyecto.textContent = descripcion;
@@ -47,28 +47,20 @@ function agregarProyectoConBoton(nombre, descripcion, listaProyectos) {
   botonEliminar.textContent = 'Eliminar';
   botonEliminar.classList.add('eliminar');
   botonEliminar.addEventListener('click', () => {
-    eliminarProyecto(contenedorProyecto, listaProyectos);
+    eliminarProyecto(contenedorProyecto, proyectosLista);
   });
-  // Agregar el título y la descripción al contenedor del proyecto
+
   contenedorProyecto.appendChild(tituloProyecto);
   contenedorProyecto.appendChild(descripcionProyecto);
   contenedorProyecto.appendChild(botonEliminar);
 
-  // Agregar el proyecto a la lista
-  listaProyectos.appendChild(contenedorProyecto);
-}
-
-
-
-// Obtener referencias a los elementos del DOM
-const modal = document.getElementById('modal');
-const agregarProyectoBtn = document.getElementById('agregar-proyecto');
-const cerrarModalBtn = document.getElementsByClassName('close')[0];
-const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
-const proyectosLista = document.getElementById('proyectos-lista');
+  proyectosLista.appendChild(contenedorProyecto);
+};
 
 // Asignar manejadores de eventos
 agregarProyectoBtn.addEventListener('click', mostrarModal);
 cerrarModalBtn.addEventListener('click', cerrarModal);
 window.addEventListener('click', clicFueraDelModal);
-agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario);
+if (agregarProyectoForm) {
+  agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario);
+}
