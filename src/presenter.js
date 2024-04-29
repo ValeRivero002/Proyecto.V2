@@ -32,16 +32,18 @@ function manejarEnvioFormulario(event) {
 function agregarProyectoConBoton(nombre, descripcion, listaProyectos) {
   const nuevoProyecto = document.createElement('li');
   nuevoProyecto.textContent = `${nombre}: ${descripcion}`;
-    // Crear botón de eliminar
-    const botonEliminar = document.createElement('button');
-    botonEliminar.textContent = 'Eliminar';
-    botonEliminar.classList.add('eliminar'); // Agregar la clase "eliminar" al botón de eliminar
-    botonEliminar.addEventListener('click', () => {
-      eliminarProyecto(nuevoProyecto, listaProyectos); // Llamar a la función para eliminar el proyecto al hacer clic en el botón
-    });
-  
-    // Agregar el botón de eliminar al proyecto
-    nuevoProyecto.appendChild(botonEliminar);
+
+  // Crear botón de eliminar
+  const botonEliminar = document.createElement('button');
+  botonEliminar.textContent = 'Eliminar';
+  botonEliminar.classList.add('eliminar'); // Agregar la clase "eliminar" al botón de eliminar
+  botonEliminar.addEventListener('click', () => {
+    eliminarProyecto(nuevoProyecto, listaProyectos); // Llamar a la función para eliminar el proyecto al hacer clic en el botón
+  });
+
+  // Agregar el botón de eliminar al proyecto
+  nuevoProyecto.appendChild(botonEliminar);
+
   // Agregar el proyecto a la lista
   listaProyectos.appendChild(nuevoProyecto);
 }
