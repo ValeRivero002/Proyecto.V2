@@ -27,26 +27,38 @@ function manejarEnvioFormulario(event) {
   // Limpiar el formulario después de agregar el proyecto
   agregarProyectoForm.reset();
 }
-
 // Función para agregar un proyecto a la lista con un botón de eliminar
 function agregarProyectoConBoton(nombre, descripcion, listaProyectos) {
-  const nuevoProyecto = document.createElement('li');
-  nuevoProyecto.textContent = `${nombre}: ${descripcion}`;
+  // Crear un contenedor para el proyecto
+  const contenedorProyecto = document.createElement('div');
+  contenedorProyecto.classList.add('proyecto');
 
-  // Crear botón de eliminar
+  // Crear el título del proyecto
+  const tituloProyecto = document.createElement('h3');
+  tituloProyecto.classList.add('proyecto-titulo');
+  tituloProyecto.textContent = nombre;
+
+  // Crear la descripción del proyecto
+  const descripcionProyecto = document.createElement('p');
+  descripcionProyecto.classList.add('proyecto-descripcion');
+  descripcionProyecto.textContent = descripcion;
+
   const botonEliminar = document.createElement('button');
   botonEliminar.textContent = 'Eliminar';
-  botonEliminar.classList.add('eliminar'); // Agregar la clase "eliminar" al botón de eliminar
+  botonEliminar.classList.add('eliminar');
   botonEliminar.addEventListener('click', () => {
-    eliminarProyecto(nuevoProyecto, listaProyectos); // Llamar a la función para eliminar el proyecto al hacer clic en el botón
+    eliminarProyecto(contenedorProyecto, listaProyectos);
   });
-
-  // Agregar el botón de eliminar al proyecto
-  nuevoProyecto.appendChild(botonEliminar);
+  // Agregar el título y la descripción al contenedor del proyecto
+  contenedorProyecto.appendChild(tituloProyecto);
+  contenedorProyecto.appendChild(descripcionProyecto);
+  contenedorProyecto.appendChild(botonEliminar);
 
   // Agregar el proyecto a la lista
-  listaProyectos.appendChild(nuevoProyecto);
+  listaProyectos.appendChild(contenedorProyecto);
 }
+
+
 
 // Obtener referencias a los elementos del DOM
 const modal = document.getElementById('modal');

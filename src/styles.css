@@ -98,9 +98,34 @@ button.eliminar {
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 button.eliminar:hover {
   background-color: #d32f2f;
+}
+/* Estilos de cada proyecto */
+.proyecto {
+  width: 10vw;
+  height: 20vh;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.proyecto:hover {
+  background-color: #e0e0e0;
+}
+
+.proyecto-titulo {
+  font-weight: bold;
+}
+
+.proyecto-descripcion {
+  font-size: 14px;
+  color: #555;
 }
