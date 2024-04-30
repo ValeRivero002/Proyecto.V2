@@ -25,36 +25,9 @@ const manejarEnvioFormulario = (event) => {
   event.preventDefault();
   const nombreProyecto = document.getElementById('nombre-proyecto').value;
   const descripcionProyecto = document.getElementById('descripcion-proyecto').value;
-  agregarProyectoConBoton(nombreProyecto, descripcionProyecto);
+  agregarProyecto(nombreProyecto, descripcionProyecto, proyectosLista);
   cerrarModal();
   event.target.reset(); // Limpiar el formulario después de agregar el proyecto
-};
-
-// Función para agregar un proyecto a la lista con un botón de eliminar
-const agregarProyectoConBoton = (nombre, descripcion) => {
-  const contenedorProyecto = document.createElement('div');
-  contenedorProyecto.classList.add('proyecto');
-
-  const tituloProyecto = document.createElement('h3');
-  tituloProyecto.classList.add('proyecto-titulo');
-  tituloProyecto.textContent = nombre;
-
-  const descripcionProyecto = document.createElement('p');
-  descripcionProyecto.classList.add('proyecto-descripcion');
-  descripcionProyecto.textContent = descripcion;
-
-  const botonEliminar = document.createElement('button');
-  botonEliminar.textContent = 'Eliminar';
-  botonEliminar.classList.add('eliminar');
-  botonEliminar.addEventListener('click', () => {
-    eliminarProyecto(contenedorProyecto, proyectosLista);
-  });
-
-  contenedorProyecto.appendChild(tituloProyecto);
-  contenedorProyecto.appendChild(descripcionProyecto);
-  contenedorProyecto.appendChild(botonEliminar);
-
-  proyectosLista.appendChild(contenedorProyecto);
 };
 
 // Asignar manejadores de eventos
