@@ -29,7 +29,6 @@ const manejarEnvioFormulario = (event) => {
   cerrarModal();
   event.target.reset(); // Limpiar el formulario después de agregar el proyecto
 };
-
 // Asignar manejadores de eventos
 agregarProyectoBtn.addEventListener('click', mostrarModal);
 cerrarModalBtn.addEventListener('click', cerrarModal);
