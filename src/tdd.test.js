@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,crearBoton, redirigirAMetricas,ObtenerCantidadCommits } from "./tdd";
+import { agregarProyecto, eliminarProyecto,crearBoton, redirigirAMetricas,ObtenerCantidadCommits,ObtenerCantidadPruebas } from "./tdd";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
 const jsdom = new JSDOM('<!DOCTYPE html><html><body><ul id="proyectos-lista"></ul></body></html>');
@@ -102,4 +102,10 @@ describe("Totalizador", () => {
     
     expect(ObtenerCantidadCommits(10)).toEqual(10);
   });
+
+  it("debería devolver la cantidad introducida en Cantidad de Commits", () => {
+    
+    expect(ObtenerCantidadPruebas(20)).toEqual(20);
+  });
+ 
 });

@@ -61,3 +61,7 @@ export function eliminarProyecto(proyecto, listaProyectos) {
 export function ObtenerCantidadCommits(cantidad) {
   return cantidad;
 }
+
+export function ObtenerCantidadPruebas(cantidadPruebas) {
+  return cantidadPruebas;
+}
