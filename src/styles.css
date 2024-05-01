@@ -107,7 +107,7 @@ button.eliminar:hover {
 /* Estilos de cada proyecto */
 .proyecto {
   width: 10vw;
-  height: 20vh;
+  height: 25vh;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -132,4 +132,24 @@ button.eliminar:hover {
 }
 ul{
   display: flex;
+}
+/* Estilo para el botón Ver métricas */
+.ver-metricas {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 5%;
+}
+
+/* Estilo cuando el cursor está sobre el botón */
+.ver-metricas:hover {
+  background-color: #45a049; /* Color de fondo más oscuro */
+}
+
+/* Estilo cuando el botón está presionado */
+.ver-metricas:active {
+  background-color: #3e8e41; /* Color de fondo aún más oscuro */
 }
