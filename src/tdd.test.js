@@ -85,4 +85,14 @@ describe("eliminarProyecto", () => {
     expect(listaProyectos.children.length).toEqual(0);
   });
 });
+describe("redirigirAMetricas", () => {
+  it("debería imprimir un mensaje en la consola", () => {
+    const logSpy = jest.spyOn(console, 'log');
 
+    redirigirAMetricas();
+
+    expect(logSpy).toHaveBeenCalledWith('Redirigir a la página de métricas');
+
+    logSpy.mockRestore();
+  });
+});
