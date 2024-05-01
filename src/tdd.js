@@ -65,3 +65,7 @@ export function ObtenerCantidadCommits(cantidad) {
 export function ObtenerCantidadPruebas(cantidadPruebas) {
   return cantidadPruebas;
 }
+
+export function ObtenerCantidadLineas(cantidadLineas) {
+  return cantidadLineas;
+}

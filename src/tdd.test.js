@@ -107,5 +107,9 @@ describe("Totalizador", () => {
     
     expect(ObtenerCantidadPruebas(20)).toEqual(20);
   });
- 
+  it("debería devolver la cantidad introducida en Cantidad de Commits", () => {
+    
+    expect(ObtenerCantidadPruebas(10)).toEqual(10);
+  });
+  
 });
