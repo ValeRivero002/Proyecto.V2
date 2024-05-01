@@ -15,12 +15,15 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const cantidad = document.querySelector("#cantidad").value;
   const cantidadPruebas = document.querySelector("#cantidad-pruebas").value;
+  const cantidadLineas = document.querySelector("#cantidad-lineas").value;
   ObtenerCantidadCommits(cantidad);
   ObtenerCantidadPruebas(cantidadPruebas);
+  ObtenerCantidadLineas(cantidadLineas);
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
       <td>${cantidad}</td>
       <td>${cantidadPruebas}</td>
+      <td>${cantidadLineas}</td>
   `;
   tablaDatosBody.appendChild(newRow);
 });
