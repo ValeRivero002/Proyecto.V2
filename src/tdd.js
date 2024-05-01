@@ -12,24 +12,21 @@ export function agregarProyecto(nombre, descripcion, listaProyectos) {
   descripcionProyecto.textContent = descripcion;
 
   // Crear el botón de eliminar
-  const botonEliminar = document.createElement('button');
-  botonEliminar.textContent = 'Eliminar';
-  botonEliminar.classList.add('eliminar');
-  botonEliminar.addEventListener('click', () => {
+  const botonEliminar = crearBoton('Eliminar', 'eliminar', () => {
     eliminarProyecto(contenedorProyecto, listaProyectos);
   });
-  const botonVerMetricas = document.createElement('button');
-  botonVerMetricas.textContent = 'Ver métricas';
-  botonVerMetricas.classList.add('ver-metricas');
-  botonVerMetricas.addEventListener('click', () => {
-    // Redireccionar a otra página para ver métricas
-    window.location.href = 'ruta-a-tu-pagina-de-metricas';
+
+  // Crear el botón de ver métricas
+  const botonVerMetricas = crearBoton('Ver métricas', 'ver-metricas', () => {
+    redirigirAMetricas();
   });
+
   // Agregar elementos al contenedor del proyecto (caja)
   contenedorProyecto.appendChild(tituloProyecto);
   contenedorProyecto.appendChild(descripcionProyecto);
   contenedorProyecto.appendChild(botonEliminar);
   contenedorProyecto.appendChild(botonVerMetricas);
+  
   // Agregar el contenedor del proyecto a la lista de proyectos
   listaProyectos.appendChild(contenedorProyecto);
 
@@ -38,7 +35,22 @@ export function agregarProyecto(nombre, descripcion, listaProyectos) {
   return contenidoProyecto;
 }
 
+// Función auxiliar para crear botones
+export function crearBoton(texto, clase, callback) {
+  const boton = document.createElement('button');
+  boton.textContent = texto;
+  boton.classList.add(clase);
+  boton.addEventListener('click', callback);
+  return boton;
+}
 
+// Función para redirigir a la página de métricas
+export function redirigirAMetricas() {
+  // Aquí deberías implementar la lógica para redirigir a la página de métricas
+  console.log('Redirigir a la página de métricas');
+}
+
+// Función para eliminar un proyecto de la lista
 export function eliminarProyecto(proyecto, listaProyectos) {
   listaProyectos.removeChild(proyecto);
 }

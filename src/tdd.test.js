@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto } from "./tdd";
+import { agregarProyecto, eliminarProyecto,crearBoton, redirigirAMetricas } from "./tdd";
 
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
@@ -35,6 +35,7 @@ describe("agregarProyecto", () => {
     // Verificamos que el contenido del nuevo proyecto sea el esperado
     expect(Producto).toEqual("Proyecto 2: Descripción del proyecto 2");
   });
+  
 
   // Agrega más casos de prueba según sea necesario
 });
@@ -84,3 +85,4 @@ describe("eliminarProyecto", () => {
     expect(listaProyectos.children.length).toEqual(0);
   });
 });
+
