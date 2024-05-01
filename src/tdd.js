@@ -54,3 +54,10 @@ export function redirigirAMetricas() {
 export function eliminarProyecto(proyecto, listaProyectos) {
   listaProyectos.removeChild(proyecto);
 }
+
+
+//FUNCIONES PAGINA METRICAS
+
+export function ObtenerCantidadCommits(cantidad) {
+  return cantidad;
+}

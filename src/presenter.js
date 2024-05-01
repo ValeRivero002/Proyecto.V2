@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto } from "./tdd";
+import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits } from "./tdd";
 
 // Obtener referencias a los elementos del DOM
 const modal = document.getElementById('modal');
@@ -36,3 +36,4 @@ window.addEventListener('click', clicFueraDelModal);
 if (agregarProyectoForm) {
   agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario);
 }
+

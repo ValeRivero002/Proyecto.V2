@@ -1,5 +1,4 @@
-import { agregarProyecto, eliminarProyecto,crearBoton, redirigirAMetricas } from "./tdd";
-
+import { agregarProyecto, eliminarProyecto,crearBoton, redirigirAMetricas,ObtenerCantidadCommits } from "./tdd";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
 const jsdom = new JSDOM('<!DOCTYPE html><html><body><ul id="proyectos-lista"></ul></body></html>');
@@ -7,7 +6,7 @@ global.document = jsdom.window.document;
 
 describe("agregarProyecto", () => {
   let listaProyectos;
-
+//hola como estas
   beforeEach(() => {
     // Limpiamos el contenido de la lista de proyectos antes de cada prueba
     listaProyectos = document.getElementById('proyectos-lista');
@@ -94,5 +93,13 @@ describe("redirigirAMetricas", () => {
     expect(logSpy).toHaveBeenCalledWith('Redirigir a la página de métricas');
 
     logSpy.mockRestore();
+  });
+});
+
+//FUNCIONES PAGINA METRICAS
+describe("Totalizador", () => {
+  it("debería devolver la cantidad introducida en Cantidad de Commits", () => {
+    
+    expect(ObtenerCantidadCommits(10)).toEqual(10);
   });
 });
