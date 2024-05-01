@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits } from "./tdd";
+import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas } from "./tdd";
 
 // Obtener referencias a los elementos del DOM
 const modal = document.getElementById('modal');
@@ -6,22 +6,27 @@ const agregarProyectoBtn = document.getElementById('agregar-proyecto');
 const cerrarModalBtn = document.querySelector('.close');
 const proyectosLista = document.getElementById('proyectos-lista');
 const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
-//metricas
+
+//METRICAS
 const form = document.querySelector("#calcular-form");
 const tablaDatosBody = document.querySelector("#datos-ingresados-body");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const cantidad = document.querySelector("#cantidad").value;
-
+  const cantidadPruebas = document.querySelector("#cantidad-pruebas").value;
   ObtenerCantidadCommits(cantidad);
- 
+  ObtenerCantidadPruebas(cantidadPruebas);
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
       <td>${cantidad}</td>
+      <td>${cantidadPruebas}</td>
   `;
   tablaDatosBody.appendChild(newRow);
 });
+
+
+
 // Función para mostrar el modal
 const mostrarModal = () => modal.style.display = 'block';
 
