@@ -69,3 +69,6 @@ export function ObtenerCantidadPruebas(cantidadPruebas) {
 export function ObtenerCantidadLineas(cantidadLineas) {
   return cantidadLineas;
 }
+export function ObtenerCobertura(cobertura) {
+  return cobertura;
+} 
