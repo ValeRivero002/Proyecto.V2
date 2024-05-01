@@ -1,5 +1,5 @@
 import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas} from "./tdd";
-import obtenerPuntajePorCommit from "./totalizador.js";
+import obtenerPuntajePorCantidadPruebas from "./totalizador.js";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
 const jsdom = new JSDOM('<!DOCTYPE html><html><body><ul id="proyectos-lista"></ul></body></html>');
@@ -121,6 +121,7 @@ describe("Totalizador", () => {
 
 describe("TotalizadorPuntajes", () =>{
     it("Si el numero de pruebas por commit es menor o igual a 1 entonces el puntaje es de 100 puntos ejemplo: generar(1) => 1", () => {
-      expect(obtenerPuntajePorCommit(1)).toEqual(100);
+      expect(obtenerPuntajePorCantidadPruebas(1)).toEqual(100);
     });
+  
   });
