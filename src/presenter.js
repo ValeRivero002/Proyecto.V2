@@ -1,4 +1,4 @@
-import { agregarProyecto, ObtenerCantidadCommits, ObtenerCantidadPruebas,ObtenerCantidadLineas,ObtenerCobertura,eliminarProyecto } from "./tdd.js";
+import { agregarProyecto, ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura, eliminarProyecto } from "./tdd.js";
 
 // Obtener referencias a los elementos del DOM
 const modal = document.getElementById('modal');
@@ -78,7 +78,7 @@ agregarProyectoBtn.addEventListener('click', mostrarModal);
 cerrarModalBtn.addEventListener('click', cerrarModal);
 window.addEventListener('click', clicFueraDelModal);
 if (agregarProyectoForm) {
-  agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario);
+  agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario, );
 }
 
 
