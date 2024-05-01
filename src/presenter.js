@@ -6,7 +6,22 @@ const agregarProyectoBtn = document.getElementById('agregar-proyecto');
 const cerrarModalBtn = document.querySelector('.close');
 const proyectosLista = document.getElementById('proyectos-lista');
 const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
+//metricas
+const form = document.querySelector("#calcular-form");
+const tablaDatosBody = document.querySelector("#datos-ingresados-body");
 
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const cantidad = document.querySelector("#cantidad").value;
+
+  ObtenerCantidadCommits(cantidad);
+ 
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+      <td>${cantidad}</td>
+  `;
+  tablaDatosBody.appendChild(newRow);
+});
 // Función para mostrar el modal
 const mostrarModal = () => modal.style.display = 'block';
 
@@ -36,4 +51,5 @@ window.addEventListener('click', clicFueraDelModal);
 if (agregarProyectoForm) {
   agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario);
 }
+
 
