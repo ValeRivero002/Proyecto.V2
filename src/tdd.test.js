@@ -61,6 +61,16 @@ describe("eliminarProyecto", () => {
     // Verificamos que el proyecto haya sido eliminado
     expect(listaProyectos.children.length).toEqual(0);
   });
+  it("eliminarProyecto debería eliminar el proyecto de la lista de proyectos", () => {
+    // Creamos un proyecto simulado
+    const proyectoSimulado = document.createElement('li');
+    proyectoSimulado.textContent = "Proyecto de prueba";
+    listaProyectos.appendChild(proyectoSimulado);
 
-  // Agrega más casos de prueba según sea necesario
+    // Llamamos a la función eliminarProyecto para eliminar el proyecto simulado
+    eliminarProyecto(proyectoSimulado, listaProyectos);
+
+    // Verificamos que el proyecto se haya eliminado correctamente de la lista
+    expect(listaProyectos.children.length).toEqual(0);
+  });
 });
