@@ -73,4 +73,14 @@ describe("eliminarProyecto", () => {
     // Verificamos que el proyecto se haya eliminado correctamente de la lista
     expect(listaProyectos.children.length).toEqual(0);
   });
+  it("debería llamar a eliminarProyecto cuando se hace clic en el botón 'Eliminar'", () => {
+    // Llamamos a la función agregarProyecto con un nuevo proyecto
+    agregarProyecto("Proyecto 1", "Descripción del proyecto 1", listaProyectos);
+
+    // Simulamos hacer clic en el botón 'Eliminar'
+    listaProyectos.children[0].querySelector('.eliminar').click();
+
+    // Verificamos que la función eliminarProyecto haya sido llamada
+    expect(listaProyectos.children.length).toEqual(0);
+  });
 });
