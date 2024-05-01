@@ -18,12 +18,18 @@ export function agregarProyecto(nombre, descripcion, listaProyectos) {
   botonEliminar.addEventListener('click', () => {
     eliminarProyecto(contenedorProyecto, listaProyectos);
   });
-
+  const botonVerMetricas = document.createElement('button');
+  botonVerMetricas.textContent = 'Ver métricas';
+  botonVerMetricas.classList.add('ver-metricas');
+  botonVerMetricas.addEventListener('click', () => {
+    // Redireccionar a otra página para ver métricas
+    window.location.href = 'ruta-a-tu-pagina-de-metricas';
+  });
   // Agregar elementos al contenedor del proyecto (caja)
   contenedorProyecto.appendChild(tituloProyecto);
   contenedorProyecto.appendChild(descripcionProyecto);
   contenedorProyecto.appendChild(botonEliminar);
-  
+  contenedorProyecto.appendChild(botonVerMetricas);
   // Agregar el contenedor del proyecto a la lista de proyectos
   listaProyectos.appendChild(contenedorProyecto);
 
