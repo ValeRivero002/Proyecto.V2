@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas,ObtenerCantidadLineas,ObtenerCobertura } from "./tdd";
+import { agregarProyecto, ObtenerCantidadCommits, ObtenerCantidadPruebas,ObtenerCantidadLineas,ObtenerCobertura,eliminarProyecto } from "./tdd.js";
 
 // Obtener referencias a los elementos del DOM
 const modal = document.getElementById('modal');
@@ -12,26 +12,41 @@ const form = document.querySelector("#calcular-form");
 const tablaDatosBody = document.querySelector("#datos-ingresados-body");
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const nombre = document.querySelector("#nombre").value;
-    const cantidad = document.querySelector("#cantidad").value;
-    const cantidadPruebas = document.querySelector("#cantidad-pruebas").value;
-    const cantidadLineas = document.querySelector("#cantidad-lineas").value;
-    const cobertura = document.querySelector("#cobertura").value;
-    
-    ObtenerCantidadCommits(cantidad);
-    ObtenerCantidadPruebas(cantidadPruebas);
-    ObtenerCantidadLineas(cantidadLineas);
-    ObtenerCobertura(cobertura);
-    const newRow = document.createElement("tr");
-    newRow.innerHTML = `
-       <td>${nombre}</td>
-       <td>${cantidad}</td>
-       <td>${cantidadPruebas}</td>
-       <td>${cantidadLineas}</td>
-       <td>${cobertura}</td>
-    `;
-    tablaDatosBody.appendChild(newRow);
+  event.preventDefault();
+  const nombre = document.querySelector("#nombre").value;
+  const cantidad = document.querySelector("#cantidad").value;
+  const cantidadPruebas = document.querySelector("#cantidad-pruebas").value;
+  const cantidadLineas = document.querySelector("#cantidad-lineas").value;
+  const cobertura = document.querySelector("#cobertura").value;
+
+  
+  ObtenerCantidadCommits(cantidad);
+  ObtenerCantidadPruebas(cantidadPruebas);
+  ObtenerCantidadLineas(cantidadLineas);
+  ObtenerCobertura(cobertura);
+
+  // Obtener los valores de las métricas
+  const commits = ObtenerCantidadCommits(cantidad);
+  const pruebas = ObtenerCantidadPruebas(cantidadPruebas);
+  const lineas = ObtenerCantidadLineas(cantidadLineas);
+  const cov = ObtenerCobertura(cobertura);
+
+  // Crear una nueva fila en la tabla con los valores de las métricas
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+     <td>${nombre}</td>
+     <td>${commits}</td>
+     <td>${pruebas}</td>
+     <td>${lineas}</td>
+     <td>${cov}</td>
+     <td><button class="eliminar-button">Eliminar</button></td>
+  `;
+  tablaDatosBody.appendChild(newRow);
+
+  // Agregar evento de click al botón de eliminar
+  newRow.querySelector(".eliminar-button").addEventListener("click", () => {
+      tablaDatosBody.removeChild(newRow);
+  });
 });
 
 

@@ -62,13 +62,15 @@ export function ObtenerCantidadCommits(cantidad) {
   return cantidad;
 }
 
-export function ObtenerCantidadPruebas(cantidadPruebas) {
+function ObtenerCantidadPruebas(cantidadPruebas) {
   return cantidadPruebas;
 }
 
-export function ObtenerCantidadLineas(cantidadLineas) {
+function ObtenerCantidadLineas(cantidadLineas) {
   return cantidadLineas;
 }
-export function ObtenerCobertura(cobertura) {
+function ObtenerCobertura(cobertura) {
   return cobertura;
 } 
+
+export { ObtenerCantidadPruebas, ObtenerCantidadLineas,ObtenerCobertura };
