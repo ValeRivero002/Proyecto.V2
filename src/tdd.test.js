@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas,buscar_nombre} from "./tdd";
+import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas,devolver_nombre} from "./tdd";
 import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura} from "./totalizador.js";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
@@ -155,7 +155,7 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
 
   describe("BuscarNombre", () =>{
     it("Deberia devolver el nombre mandado", () => {
-        expect(buscar_nombre("TDDLAB")).toEqual("TDDLAB");
+        expect(devolver_nombre("TDDLAB")).toEqual("TDDLAB");
     });
     
 });

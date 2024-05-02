@@ -1,5 +1,5 @@
 
-import { agregarProyecto, buscar_nombre } from "./tdd.js";
+import { agregarProyecto, devolver_nombre } from "./tdd.js";
 
 
 // Obtener referencias a los elementos del DOM
@@ -37,7 +37,7 @@ const manejarEnvioFormulario = (event) => {
 const Buscar_Nombre = (event) => {
   event.preventDefault();
   const BuscarNombreInput = document.getElementById('BuscarInput').value;
-  const nombre_buscado= buscar_nombre(BuscarNombreInput);
+  const nombre_buscado= devolver_nombre(BuscarNombreInput);
   BuscarNombreDiv.textContent = `Proyecto: ${nombre_buscado}`;
   event.target.reset();
 };

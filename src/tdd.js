@@ -73,7 +73,7 @@ export function ObtenerCobertura(cobertura) {
   return cobertura;
 } 
 
-export function buscar_nombre(nombre)
+export function devolver_nombre(nombre)
 {
   return nombre;
 }
