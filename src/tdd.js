@@ -77,3 +77,13 @@ export function devolver_nombre(nombre)
 {
   return nombre;
 }
+export function buscar_nombre(nombre,listaProyectos)
+{
+  if(listaProyectos.children.length==0)
+  {
+    return "No hay Proyectos";
+  }
+  
+}
+
+

@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas,devolver_nombre} from "./tdd";
+import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas,devolver_nombre,buscar_nombre} from "./tdd";
 import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura} from "./totalizador.js";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
@@ -154,8 +154,19 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
   });
 
   describe("BuscarNombre", () =>{
+    let listaProyectos;
+
+  beforeEach(() => {
+    // Limpiamos el contenido de la lista de proyectos antes de cada prueba
+    listaProyectos = document.getElementById('proyectos-lista');
+    listaProyectos.innerHTML = '';
+  });
     it("Deberia devolver el nombre mandado", () => {
         expect(devolver_nombre("TDDLAB")).toEqual("TDDLAB");
     });
+    it("Deberia devolver no hay proyectos si esta vacio", () => {
+
+      expect(buscar_nombre("TDDLAB",listaProyectos)).toEqual("No hay Proyectos");
+  });
     
 });
