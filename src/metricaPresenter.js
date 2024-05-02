@@ -12,7 +12,7 @@ const tablaDatosBody = document.querySelector("#datos-ingresados-body");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const nombre = document.querySelector("#nombre").value;
+  
   const cantidad = parseInt(document.querySelector("#cantidad").value);
   const cantidadPruebas = parseInt(document.querySelector("#cantidad-pruebas").value);
   const cantidadLineas = parseInt(document.querySelector("#cantidad-lineas").value);
@@ -51,7 +51,7 @@ puntajeTotalProyectoDiv.textContent = `Puntaje total del proyecto: ${promedioPun
 // Crear una nueva fila en la tabla con los valores de las métricas y el puntaje total
 const newRow = document.createElement("tr");
 newRow.innerHTML = `
-     <td>${nombre}</td>
+     
      <td>${commits}</td>
      <td>${pruebas}</td>
      <td>${lineas}</td>
