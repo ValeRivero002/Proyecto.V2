@@ -41,8 +41,8 @@ if (agregarProyectoForm) {
   agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario, );
 }
 
-const manejarbuscadorpro = (event) => {
+const manejarbuscadorproyectos = (event) => {
   event.preventDefault();
-  const nombreProyaEncontrar = document.getElementById('buscador-proyecto').value;
-  BuscadordeProyectos(nombreProyaEncontrar);
+  const nombreProyectoaEncontrar = document.getElementById('buscador-proyecto').value;
+  BuscadordeProyectos(nombreProyectoaEncontrar);
 };
