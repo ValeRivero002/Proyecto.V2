@@ -46,8 +46,8 @@ export function crearBoton(texto, clase, callback) {
 
 // Función para redirigir a la página de métricas
 export function redirigirAMetricas() {
-  // Aquí deberías implementar la lógica para redirigir a la página de métricas
-  console.log('Redirigir a la página de métricas');
+  const url = 'indexMetrica.html';
+  window.open(url, '_self')
 }
 
 // Función para eliminar un proyecto de la lista
