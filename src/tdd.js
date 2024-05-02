@@ -73,3 +73,7 @@ export function ObtenerCobertura(cobertura) {
   return cobertura;
 } 
 
+//Examen Nicolette 
+export function BusquedaPorNombreProyecto(nombre){
+  return nombre;
+}
