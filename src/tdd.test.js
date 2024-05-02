@@ -1,5 +1,5 @@
 import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas} from "./tdd";
-import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas} from "./totalizador.js";
+import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura} from "./totalizador.js";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
 const jsdom = new JSDOM('<!DOCTYPE html><html><body><ul id="proyectos-lista"></ul></body></html>');
@@ -134,5 +134,8 @@ describe("TotalizadorPuntajes", () =>{
   });
   it("Si el numero de lineas por commit es mayor a 35 el puntaje es de 0 puntos ejemplo: obtenerPuntajePorLineas(15) => 0", () => {
     expect(obtenerPuntajePorCantidadLineas(40)).toEqual(0);
+  });
+  it("Retornamos la cantidad de cobertura que obtuvo el proyecto ejemplo: obtenerPuntajePorCobertura(100) => 100", () => {
+    expect(obtenerPuntajePorCobertura(100)).toEqual(100);
   });
   });

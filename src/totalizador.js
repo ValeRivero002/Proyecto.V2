@@ -17,6 +17,9 @@ var puntajeLineas = 0;
        puntajeLineas;
      return puntajeLineas;
   }
+  function obtenerPuntajePorCobertura(cobertura) {
+    return cobertura;
+   }
      
     
-    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas};
+    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura};
