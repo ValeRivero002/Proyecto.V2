@@ -81,7 +81,7 @@ export function buscar_nombre(nombre,listaProyectos)
 {
   if(listaProyectos.children.length==0)
   {
-    return "No hay Proyectos";
+    return "El proyecto TDD no existe";
   }
   else{
     return devolver_nombre(nombre);

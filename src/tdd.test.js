@@ -166,7 +166,7 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
     });
     it("Deberia devolver no hay proyectos si esta vacio", () => {
 
-      expect(buscar_nombre("TDDLAB",listaProyectos)).toEqual("No hay Proyectos");
+      expect(buscar_nombre("TDDLAB",listaProyectos)).toEqual("El proyecto TDD no existe");
   });
   it("Deberia devolver nombre del proyecto si no esta vacio", () => {
     const proyectoSimulado = document.createElement('li');
