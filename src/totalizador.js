@@ -17,9 +17,11 @@ var puntajeLineas = 0;
        puntajeLineas;
      return puntajeLineas;
   }
-  function obtenerPuntajePorCobertura(cobertura) {
+function obtenerPuntajePorCobertura(cobertura) {
     return cobertura;
    }
-     
+function obtenerPuntajeTotalPorCommit(obtenerPuntajePorCantidadLineas,obtenerPuntajePorCantidadPruebas,obtenerPuntajePorCobertura) {
+    return (obtenerPuntajePorCantidadLineas + obtenerPuntajePorCantidadPruebas + obtenerPuntajePorCobertura) / 3;
+   }     
     
-    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura};
+    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit};
