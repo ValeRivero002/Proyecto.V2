@@ -23,5 +23,12 @@ function obtenerPuntajePorCobertura(cobertura) {
 function obtenerPuntajeTotalPorCommit(obtenerPuntajePorCantidadLineas,obtenerPuntajePorCantidadPruebas,obtenerPuntajePorCobertura) {
     return (obtenerPuntajePorCantidadLineas + obtenerPuntajePorCantidadPruebas + obtenerPuntajePorCobertura) / 3;
    }     
+function obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas) {
+if(puntajePruebas == 100){
+    return "Cantidad de pruebas correctas";
+}else{
+    return "Tienes mas de una prueba en este commit, recuerda que tienes que tener maximo 1 prueba por commit.";
+}
+}
     
-    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit};
+    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas};
