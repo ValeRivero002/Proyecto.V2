@@ -83,7 +83,9 @@ export function buscar_nombre(nombre,listaProyectos)
   {
     return "No hay Proyectos";
   }
-  
+  else{
+    return devolver_nombre(nombre);
+  }
 }
 
 
