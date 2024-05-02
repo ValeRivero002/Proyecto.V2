@@ -1,5 +1,5 @@
 
-import { agregarProyecto } from "./tdd.js";
+import { agregarProyecto, buscar_nombre } from "./tdd.js";
 
 
 // Obtener referencias a los elementos del DOM
@@ -8,6 +8,9 @@ const agregarProyectoBtn = document.getElementById('agregar-proyecto');
 const cerrarModalBtn = document.querySelector('.close');
 const proyectosLista = document.getElementById('proyectos-lista');
 const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
+
+const BuscarNombreBtn = document.getElementById('BuscarBtn');
+const BuscarNombreDiv = document.getElementById('div_buscar_nombre');
 
 // Función para mostrar el modal
 const mostrarModal = () => modal.style.display = 'block';
@@ -31,8 +34,16 @@ const manejarEnvioFormulario = (event) => {
   cerrarModal();
   event.target.reset(); // Limpiar el formulario después de agregar el proyecto
 };
+const Buscar_Nombre = (event) => {
+  event.preventDefault();
+  const BuscarNombreInput = document.getElementById('BuscarInput').value;
+  const nombre_buscado= buscar_nombre(BuscarNombreInput);
+  BuscarNombreDiv.textContent = `Proyecto: ${nombre_buscado}`;
+  event.target.reset();
+};
 // Asignar manejadores de eventos
 agregarProyectoBtn.addEventListener('click', mostrarModal);
+BuscarNombreBtn.addEventListener('click', Buscar_Nombre);
 cerrarModalBtn.addEventListener('click', cerrarModal);
 window.addEventListener('click', clicFueraDelModal);
 if (agregarProyectoForm) {
