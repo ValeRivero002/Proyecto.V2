@@ -159,7 +159,7 @@ it("Retornamos la retroalimentacion correspondiente al puntaje de 0 de cantidad 
 it("Retornamos la retroalimentacion correspondiente a la cobertura del commit para el puntaje menor 100", () => {
   expect(obtenerRetroalimentacionPorCobertura(obtenerPuntajePorCobertura(90))).toEqual("Tienes lineas de codigo que pueden mejorarse en el commit");
 }); 
-it("Retornamos la retroalimentacion correspondiente a la cobertura del commit para el puntaje menor 100", () => {
+it("Retornamos la retroalimentacion correspondiente a la cobertura del commit para el puntaje igual a 100", () => {
   expect(obtenerRetroalimentacionPorCobertura(obtenerPuntajePorCobertura(90))).toEqual("Tienes lineas de codigo que pueden mejorarse en el commit");
 }); 
   });
