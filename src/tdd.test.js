@@ -158,5 +158,8 @@ describe("Buscador", () => {
     it("debería devolver el nombre introducido", () => {
       expect(BusquedaPorNombreProyecto("proyecto1")).toEqual("proyecto1");
     });
+    it("debería devolver el nombre introducido si es igual al nombre proyecto1", () => {
+      expect(BusquedaPorNombreProyecto("proyecto1")).toEqual("proyecto1");
+    });
  
  });

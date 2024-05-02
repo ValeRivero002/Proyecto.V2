@@ -75,5 +75,9 @@ export function ObtenerCobertura(cobertura) {
 
 //Examen Nicolette 
 export function BusquedaPorNombreProyecto(nombre){
-  return nombre;
+  if(nombre=="proyecto1"){
+    return nombre;
+  }else{
+    return "no se encontro"
+  }
 }
