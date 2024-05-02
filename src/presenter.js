@@ -9,6 +9,11 @@ const cerrarModalBtn = document.querySelector('.close');
 const proyectosLista = document.getElementById('proyectos-lista');
 const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
 
+
+const buscarProyectoBtn = document.getElementById('buscar-proyecto');
+const buscarproyectosLista = document.getElementById('buscar-proyectos-lista');
+const busacrProyectoForm = document.getElementById('buscar-proyecto-form');
+
 // Función para mostrar el modal
 const mostrarModal = () => modal.style.display = 'block';
 
@@ -23,7 +28,7 @@ const clicFueraDelModal = (event) => {
 };
 
 // Función para manejar el envío del formulario de agregar proyecto
-const manejarEnvioFormulario = (event) => {
+  const manejarEnvioFormulario = (event) => {
   event.preventDefault();
   const nombreProyecto = document.getElementById('nombre-proyecto').value;
   const descripcionProyecto = document.getElementById('descripcion-proyecto').value;
