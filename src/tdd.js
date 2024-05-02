@@ -55,7 +55,11 @@ export function eliminarProyecto(proyecto, listaProyectos) {
   listaProyectos.removeChild(proyecto);
 }
 
+export function buscarProyecto(proyecto, listaProyectos) {
+  for()
+  listaProyectos.tituloProyecto()[0];
 
+}
 //FUNCIONES PAGINA METRICAS
 
 export function ObtenerCantidadCommits(cantidad) {
@@ -72,4 +76,5 @@ export function ObtenerCantidadLineas(cantidadLineas) {
 export function ObtenerCobertura(cobertura) {
   return cobertura;
 } 
+
 
