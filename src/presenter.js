@@ -1,12 +1,18 @@
 import { agregarProyecto, ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura, eliminarProyecto } from "./tdd.js";
 import { obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura, obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura} from "./totalizador.js";
 
+
+
+
 // Obtener referencias a los elementos del DOM
 const modal = document.getElementById('modal');
 const agregarProyectoBtn = document.getElementById('agregar-proyecto');
 const cerrarModalBtn = document.querySelector('.close');
 const proyectosLista = document.getElementById('proyectos-lista');
 const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
+const puntajeTotalProyectoDiv = document.getElementById('puntaje-total-proyecto');
+
+let sumaPuntajesTotales = 0;
 
 //METRICAS
 const form = document.querySelector("#calcular-form");
@@ -39,6 +45,16 @@ const puntajeTotal = obtenerPuntajeTotalPorCommit(puntajeLineas, puntajePruebas,
 const retroalimentacionPruebas = obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas);
 const retroalimentacionLineas = obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas);
 const retroalimentacionCobertura = obtenerRetroalimentacionPorCobertura(puntajeCobertura);
+
+// Calcula la suma de los puntajes totales
+sumaPuntajesTotales += puntajeTotal;
+
+// Calcula el promedio de los puntajes totales
+const cantidadFilas = tablaDatosBody.children.length + 1;
+const promedioPuntajesTotales = sumaPuntajesTotales / cantidadFilas;
+
+// Muestra el puntaje total del proyecto en el div correspondiente
+puntajeTotalProyectoDiv.textContent = `Puntaje total del proyecto: ${promedioPuntajesTotales}`;
 
 // Crear una nueva fila en la tabla con los valores de las métricas y el puntaje total
 const newRow = document.createElement("tr");
