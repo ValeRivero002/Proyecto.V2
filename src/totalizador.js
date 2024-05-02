@@ -7,5 +7,13 @@ function obtenerPuntajePorCantidadPruebas(cantidadPruebas) {
     
         return puntajePruebas;
         }
+function obtenerPuntajePorCantidadLineas(cantidadLineas) {
+var puntajeLineas = 0;
+     if(cantidadLineas <= 20){
+       puntajeLineas = 100;
+     }
+     return puntajeLineas;
+  }
+     
     
-export default obtenerPuntajePorCantidadPruebas;
+    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas};
