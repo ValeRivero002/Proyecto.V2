@@ -33,6 +33,8 @@ if(puntajePruebas == 100){
 function obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas) {
     if(puntajeLineas == 100){
       return "Cantidad de lineas correctas";
+    }else if(puntajeLineas == 50){
+        return "Tienes una cantidad de lineas superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit";
     }
 }
     
