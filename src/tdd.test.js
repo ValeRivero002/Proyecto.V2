@@ -129,5 +129,7 @@ describe("TotalizadorPuntajes", () =>{
   it("Si el numero de lineas por commit es menor o igual a 20 entonces el puntaje es de 100 puntos ejemplo: obtenerPuntajePorLineas(15) => 100", () => {
     expect(obtenerPuntajePorCantidadLineas(15)).toEqual(100);
   });
- 
+  it("Si el numero de lineas por commit es mayor a 20 entonces y menor a 35 el puntaje es de 50 puntos ejemplo: obtenerPuntajePorLineas(15) => 50", () => {
+    expect(obtenerPuntajePorCantidadLineas(30)).toEqual(50);
+  });
   });
