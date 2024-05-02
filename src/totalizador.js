@@ -38,5 +38,9 @@ function obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas) {
     }else
     return "Tienes una cantidad de lineas excesivamente superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit";
   }
-    
-    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas};
+function obtenerRetroalimentacionPorCobertura(cobertura) {
+ if(cobertura < 100){
+      return "Tienes lineas de codigo que pueden mejorarse en el commit";
+ }
+}    
+    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura};
