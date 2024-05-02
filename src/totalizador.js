@@ -11,8 +11,10 @@ function obtenerPuntajePorCantidadLineas(cantidadLineas) {
 var puntajeLineas = 0;
      if(cantidadLineas <= 20){
        puntajeLineas = 100;
-     }else if(cantidadLineas > 20 && cantidadLineas <= 35)
+     }else if(cantidadLineas > 20 && cantidadLineas <= 35){
        puntajeLineas = 50 
+     }else
+       puntajeLineas;
      return puntajeLineas;
   }
      
