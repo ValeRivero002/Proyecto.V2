@@ -30,5 +30,10 @@ if(puntajePruebas == 100){
     return "Tienes mas de una prueba en este commit, recuerda que tienes que tener maximo 1 prueba por commit.";
 }
 }
+function obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas) {
+    if(puntajeLineas == 100){
+      return "Cantidad de lineas correctas";
+    }
+}
     
-    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas};
+    export {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas};
