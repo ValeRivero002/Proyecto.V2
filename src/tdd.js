@@ -56,6 +56,7 @@ export function eliminarProyecto(proyecto, listaProyectos) {
 }
 
 
+
 //FUNCIONES PAGINA METRICAS
 
 export function ObtenerCantidadCommits(cantidad) {
@@ -73,3 +74,8 @@ export function ObtenerCobertura(cobertura) {
   return cobertura;
 } 
 
+export function BuscadordeProyectos(nombre){
+
+  
+
+}

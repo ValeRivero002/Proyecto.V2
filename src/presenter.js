@@ -1,5 +1,6 @@
 
 import { agregarProyecto } from "./tdd.js";
+import { BuscadordeProyectos } from "./tdd.js";
 
 
 // Obtener referencias a los elementos del DOM
@@ -8,6 +9,7 @@ const agregarProyectoBtn = document.getElementById('agregar-proyecto');
 const cerrarModalBtn = document.querySelector('.close');
 const proyectosLista = document.getElementById('proyectos-lista');
 const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
+
 
 // Función para mostrar el modal
 const mostrarModal = () => modal.style.display = 'block';
@@ -38,3 +40,9 @@ window.addEventListener('click', clicFueraDelModal);
 if (agregarProyectoForm) {
   agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario, );
 }
+
+const manejarbuscadorpro = (event) => {
+  event.preventDefault();
+  const nombreProyaEncontrar = document.getElementById('buscador-proyecto').value;
+  BuscadordeProyectos(nombreProyaEncontrar);
+};
