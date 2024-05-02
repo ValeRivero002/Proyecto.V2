@@ -161,5 +161,7 @@ describe("Buscador", () => {
     it("debería devolver el nombre introducido si es igual al nombre proyecto1", () => {
       expect(BusquedaPorNombreProyecto("proyecto1")).toEqual("proyecto1");
     });
- 
+    it("debería devolver el nombre introducido de la lista de proyecto es igual al nombre introducido", () => {
+      expect(BusquedaPorNombreProyecto("proyecto1")).toEqual("proyecto1");
+    });
  });
