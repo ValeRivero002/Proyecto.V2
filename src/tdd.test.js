@@ -174,5 +174,5 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
     listaProyectos.appendChild(proyectoSimulado);
     expect(buscar_nombre("TDDLAB",listaProyectos)).toEqual("TDDLAB");
 });
-    
+
 });

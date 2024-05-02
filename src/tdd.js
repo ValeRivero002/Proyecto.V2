@@ -87,5 +87,12 @@ export function buscar_nombre(nombre,listaProyectos)
     return devolver_nombre(nombre);
   }
 }
+export function devolver_proyecto(nombre,listaProyectos)
+{
+  if(nombre==listaProyectos.children.tituloProyecto)
+  {
+    return "se encontro Proyecto"
+  }
+}
 
 
