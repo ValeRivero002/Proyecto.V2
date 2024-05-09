@@ -77,5 +77,29 @@ export function ObtenerCobertura(cobertura) {
 // Función para buscar un proyecto en la lista
 export function buscarProyecto(nombre, listaProyectos) {
   const proyectos = Array.from(listaProyectos.children);
-  return proyectos.find(proyecto => proyecto.textContent.includes(nombre));
+  let proyectoEncontrado = null;
+
+  proyectos.forEach(proyecto => {
+    const nombreProyecto = proyecto.textContent.trim();
+    if (nombreProyecto === nombre) {
+      proyecto.style.display = 'block'; // Mostrar proyecto que coincide con el nombre buscado
+      proyectoEncontrado = proyecto;
+    } else {
+      proyecto.style.display = 'none'; // Ocultar proyectos que no coinciden con el nombre buscado
+    }
+  });
+
+  // Mostrar el proyecto encontrado en el contenedor
+  mostrarProyectoEncontrado(proyectoEncontrado);
+
+  return proyectoEncontrado; // Devolver el proyecto encontrado
+}
+
+function mostrarProyectoEncontrado(proyectoEncontrado) {
+  const busquedaProyecto = document.getElementById('busqueda-proyecto');
+  if (busquedaProyecto && proyectoEncontrado) {
+    busquedaProyecto.innerHTML = `<h3>Proyecto Encontrado:</h3><p>${proyectoEncontrado.textContent}</p>`;
+  } else if (busquedaProyecto) {
+    busquedaProyecto.innerHTML = '<p>Proyecto no encontrado en la lista.</p>';
+  }
 }

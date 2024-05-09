@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,buscarProyecto,crearBoton, redirigirAMetricas} from "./tdd";
+import { agregarProyecto, eliminarProyecto,mostrarProyectoEncontrado,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,buscarProyecto,crearBoton, redirigirAMetricas} from "./tdd";
 import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura} from "./totalizador.js";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
@@ -165,7 +165,19 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
     listaProyectos.appendChild(proyecto);
 
     const resultado = buscarProyecto('Proyecto de prueba', listaProyectos);
-    
+
+    expect(resultado).toBeDefined();
+    expect(resultado.textContent).toContain('Proyecto de prueba');
+  });
+
+  it('debería encontrar un proyecto en una lista con un solo proyecto', () => {
+    const listaProyectos = document.createElement('ul');
+    const proyecto = document.createElement('li');
+    proyecto.textContent = 'Proyecto de prueba';
+    listaProyectos.appendChild(proyecto);
+
+    const resultado = buscarProyecto('Proyecto de prueba', listaProyectos);
+
     expect(resultado).toBeDefined();
     expect(resultado.textContent).toContain('Proyecto de prueba');
   });

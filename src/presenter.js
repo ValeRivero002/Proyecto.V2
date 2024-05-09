@@ -23,13 +23,16 @@ const clicFueraDelModal = (event) => {
 };
 
 // Función para manejar el envío del formulario de agregar proyecto
-  const manejarEnvioFormulario = (event) => {
+const manejarEnvioFormulario = (event) => {
   event.preventDefault();
   const nombreProyecto = document.getElementById('nombre-proyecto').value;
   const descripcionProyecto = document.getElementById('descripcion-proyecto').value;
   agregarProyecto(nombreProyecto, descripcionProyecto, proyectosLista);
   cerrarModal();
   event.target.reset(); // Limpiar el formulario después de agregar el proyecto
+
+  // Buscar y mostrar el proyecto agregado
+  buscarProyecto(nombreProyecto, proyectosLista);
 };
 // Asignar manejadores de eventos
 agregarProyectoBtn.addEventListener('click', mostrarModal);
@@ -44,15 +47,16 @@ const buscarProyectoInput = document.getElementById('buscar-proyecto');
 const buscarBtn = document.getElementById('buscar');
 
 // Función para buscar un proyecto
-const buscarProyecto = () => {
-  const nombreProyecto = buscarProyectoInput.value;
-  const proyectoEncontrado = buscarProyecto(nombreProyecto, proyectosLista);
-  if (proyectoEncontrado) {
-    resultadoBusqueda.textContent = `Proyecto encontrado: ${proyectoEncontrado.textContent}`;
-  } else {
-    resultadoBusqueda.textContent = 'Proyecto no encontrado en la lista.';
-  }
-};
 
-// Asignar manejador de evento para el botón de búsqueda
-buscarBtn.addEventListener('click', buscarProyecto);
+// Función para buscar un proyecto en la lista y mostrar solo el proyecto buscado
+
+function mostrarProyectoEncontrado(proyectoEncontrado) {
+  const busquedaProyecto = document.getElementById('busqueda-proyecto');
+  if (proyectoEncontrado) {
+    busquedaProyecto.innerHTML = `<h3>Proyecto Encontrado:</h3><p>${proyectoEncontrado.textContent}</p>`;
+  } else {
+    busquedaProyecto.innerHTML = '<p>Proyecto no encontrado en la lista.</p>';
+  }
+}
+
+
