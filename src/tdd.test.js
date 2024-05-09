@@ -181,4 +181,25 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
     expect(resultado).toBeDefined();
     expect(resultado.textContent).toContain('Proyecto de prueba');
   });
+  it('debería encontrar un proyecto en una lista con varios proyectos', () => {
+    const listaProyectos = document.createElement('ul');
+    
+    // Crear varios proyectos
+    const proyecto1 = document.createElement('li');
+    proyecto1.textContent = 'Proyecto 1';
+    listaProyectos.appendChild(proyecto1);
+
+    const proyecto2 = document.createElement('li');
+    proyecto2.textContent = 'Proyecto 2';
+    listaProyectos.appendChild(proyecto2);
+
+    const proyecto3 = document.createElement('li');
+    proyecto3.textContent = 'Proyecto de prueba';
+    listaProyectos.appendChild(proyecto3);
+
+    const proyectoEncontrado = buscarProyecto('Proyecto de prueba', listaProyectos);
+    
+    expect(proyectoEncontrado).toBeDefined();
+    expect(proyectoEncontrado.textContent).toContain('Proyecto de prueba');
+  });
 });
