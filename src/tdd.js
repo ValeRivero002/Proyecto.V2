@@ -75,31 +75,15 @@ export function ObtenerCobertura(cobertura) {
 
 //Tarea Nicolette 
 // Función para buscar un proyecto en la lista
-export function buscarProyecto(nombre, listaProyectos) {
-  const proyectos = Array.from(listaProyectos.children);
-  let proyectoEncontrado = null;
-
-  proyectos.forEach(proyecto => {
-    const nombreProyecto = proyecto.textContent.trim();
-    if (nombreProyecto === nombre) {
-      proyecto.style.display = 'block'; // Mostrar proyecto que coincide con el nombre buscado
-      proyectoEncontrado = proyecto;
-    } else {
-      proyecto.style.display = 'none'; // Ocultar proyectos que no coinciden con el nombre buscado
-    }
-  });
-
-  // Mostrar el proyecto encontrado en el contenedor
-  mostrarProyectoEncontrado(proyectoEncontrado);
-
-  return proyectoEncontrado; // Devolver el proyecto encontrado
+export function buscarProyecto(nombreProyecto, listaProyectos) {
+  return Array.from(listaProyectos.children).find(proyecto => proyecto.textContent.includes(nombreProyecto));
 }
 
 function mostrarProyectoEncontrado(proyectoEncontrado) {
   const busquedaProyecto = document.getElementById('busqueda-proyecto');
-  if (busquedaProyecto && proyectoEncontrado) {
+  if (proyectoEncontrado) {
     busquedaProyecto.innerHTML = `<h3>Proyecto Encontrado:</h3><p>${proyectoEncontrado.textContent}</p>`;
-  } else if (busquedaProyecto) {
+  } else {
     busquedaProyecto.innerHTML = '<p>Proyecto no encontrado en la lista.</p>';
   }
 }

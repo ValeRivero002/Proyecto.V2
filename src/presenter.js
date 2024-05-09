@@ -1,5 +1,5 @@
 
-import { agregarProyecto } from "./tdd.js";
+import { agregarProyecto,buscarProyecto } from "./tdd.js";
 
 
 // Obtener referencias a los elementos del DOM
@@ -45,9 +45,14 @@ if (agregarProyectoForm) {
 // Obtener referencias a los elementos del DOM
 const buscarProyectoInput = document.getElementById('buscar-proyecto');
 const buscarBtn = document.getElementById('buscar');
+const busquedaProyecto = document.getElementById('busqueda-proyecto');
 
 // Función para buscar un proyecto
-
+function buscarProyectoEnLista() {
+  const nombreProyecto = buscarProyectoInput.value;
+  const proyectoEncontrado = buscarProyecto(nombreProyecto, proyectosLista);
+  mostrarProyectoEncontrado(proyectoEncontrado);
+}
 // Función para buscar un proyecto en la lista y mostrar solo el proyecto buscado
 
 function mostrarProyectoEncontrado(proyectoEncontrado) {
@@ -59,4 +64,6 @@ function mostrarProyectoEncontrado(proyectoEncontrado) {
   }
 }
 
+// Asignar evento click al botón buscar
+buscarBtn.addEventListener('click', buscarProyectoEnLista);
 
