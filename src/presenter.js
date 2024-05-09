@@ -9,11 +9,6 @@ const cerrarModalBtn = document.querySelector('.close');
 const proyectosLista = document.getElementById('proyectos-lista');
 const agregarProyectoForm = document.getElementById('agregar-proyecto-form');
 
-
-const buscarProyectoBtn = document.getElementById('buscar-proyecto');
-const buscarproyectosLista = document.getElementById('buscar-proyectos-lista');
-const busacrProyectoForm = document.getElementById('buscar-proyecto-form');
-
 // Función para mostrar el modal
 const mostrarModal = () => modal.style.display = 'block';
 
@@ -43,3 +38,21 @@ window.addEventListener('click', clicFueraDelModal);
 if (agregarProyectoForm) {
   agregarProyectoForm.addEventListener('submit', manejarEnvioFormulario, );
 }
+//nicolette corregir examen
+// Obtener referencias a los elementos del DOM
+const buscarProyectoInput = document.getElementById('buscar-proyecto');
+const buscarBtn = document.getElementById('buscar');
+
+// Función para buscar un proyecto
+const buscarProyecto = () => {
+  const nombreProyecto = buscarProyectoInput.value;
+  const proyectoEncontrado = buscarProyecto(nombreProyecto, proyectosLista);
+  if (proyectoEncontrado) {
+    resultadoBusqueda.textContent = `Proyecto encontrado: ${proyectoEncontrado.textContent}`;
+  } else {
+    resultadoBusqueda.textContent = 'Proyecto no encontrado en la lista.';
+  }
+};
+
+// Asignar manejador de evento para el botón de búsqueda
+buscarBtn.addEventListener('click', buscarProyecto);

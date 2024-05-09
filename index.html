@@ -8,9 +8,14 @@
 </head>
 <body>
   <h1>Lista de Proyectos</h1>
-  <a href="indexMetrica.html"></a>
-  <button id="agregar-proyecto">Agregar Proyecto</button>
+  <div>
+    <label for="buscar-proyecto">Buscar Proyecto:</label>
+    <input type="text" id="buscar-proyecto" placeholder="Nombre del Proyecto"/>
+    <button id="buscar">Buscar</button>
+  </div>
   <ul id="proyectos-lista"></ul>
+  <div id="resultado-busqueda"></div>
+  <button id="agregar-proyecto">Agregar Proyecto</button>
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -21,11 +26,6 @@
         <label for="descripcion-proyecto">Descripción del Proyecto:</label>
         <textarea id="descripcion-proyecto" required></textarea>
         <input type="submit" value="Agregar"/>
-      </form>
-      <form id="buscar-proyecto-form">
-        <label for="buscar-nombre-proyecto">Nombre del Proyecto a buscar:</label>
-        <input type="text" id="buscar-nombre-proyecto" required />
-        <input type="submit" value="Buscar"/>
       </form>
     </div>
   </div>

@@ -73,12 +73,9 @@ export function ObtenerCobertura(cobertura) {
   return cobertura;
 } 
 
-//Examen Nicolette 
-export function BusquedaPorNombreProyecto(nombre){
-  for(i=0;i<=listaProyectos.appendChild(contenedorProyecto)[i];i++){
-    if(nombre==listaProyectos.appendChild(contenedorProyecto)){
-    return "encontrado";
-    }  
-   }
-  return "no Encontrado"
+//Tarea Nicolette 
+// Función para buscar un proyecto en la lista
+export function buscarProyecto(nombre, listaProyectos) {
+  const proyectos = Array.from(listaProyectos.children);
+  return proyectos.find(proyecto => proyecto.textContent.includes(nombre));
 }

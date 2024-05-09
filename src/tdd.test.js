@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,BusquedaPorNombreProyecto,crearBoton, redirigirAMetricas} from "./tdd";
+import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,buscarProyecto,crearBoton, redirigirAMetricas} from "./tdd";
 import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura} from "./totalizador.js";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
@@ -154,14 +154,19 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
 }); 
   });
 
-describe("Buscador", () => {
-    it("debería devolver el nombre introducido", () => {
-      expect(BusquedaPorNombreProyecto("proyecto1")).toEqual("proyecto1");
-    });
-    it("debería devolver el nombre introducido si es igual al nombre proyecto1", () => {
-      expect(BusquedaPorNombreProyecto("proyecto1")).toEqual("proyecto1");
-    });
-    it("debería devolver el nombre introducido de la lista de proyecto es igual al nombre introducido", () => {
-      expect(BusquedaPorNombreProyecto("proyecto1")).toEqual("proyecto1");
-    });
- });
+
+
+ //Tarea Nicolette Corregir examen
+ describe('buscarProyecto', () => {
+  it('debería encontrar un proyecto en una lista vacía', () => {
+    const listaProyectos = document.createElement('ul');
+    const proyecto = document.createElement('li');
+    proyecto.textContent = 'Proyecto de prueba';
+    listaProyectos.appendChild(proyecto);
+
+    const resultado = buscarProyecto('Proyecto de prueba', listaProyectos);
+    
+    expect(resultado).toBeDefined();
+    expect(resultado.textContent).toContain('Proyecto de prueba');
+  });
+});
