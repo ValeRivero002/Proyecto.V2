@@ -1,11 +1,13 @@
 function obtenerPuntajePorCantidadPruebas(cantidadPruebas) {
-    var puntajePruebas = 0;
-        if(cantidadPruebas <= 1){
-          puntajePruebas = 100;
-        }else
-          puntajePruebas;
-    
-        return puntajePruebas;
+    if (cantidadPruebas >= 100) {
+      return 20; // Excelente
+  } else if (cantidadPruebas >= 80) {
+      return 16; // Bueno
+  } else if (cantidadPruebas >= 60) {
+      return 12; // Regular
+  } else {
+      return 8; // Deficiente
+  }
         }
 function obtenerPuntajePorCantidadLineas(cantidadLineas) {
 var puntajeLineas = 0;

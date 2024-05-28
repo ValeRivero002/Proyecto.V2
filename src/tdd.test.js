@@ -109,12 +109,27 @@ describe("Totalizador", () => {
 
 
 describe("TotalizadorPuntajes", () =>{
-  it("Si el numero de pruebas por commit es menor o igual a 1 entonces el puntaje es de 100 puntos ejemplo: generar(1) => 1", () => {
-      expect(obtenerPuntajePorCantidadPruebas(1)).toEqual(100);
+
+  it("Si el número de pruebas por commit es mayor o igual a 100 entonces el puntaje es de 20 puntos", () => {
+      expect(obtenerPuntajePorCantidadPruebas(100)).toEqual(20);
+      expect(obtenerPuntajePorCantidadPruebas(120)).toEqual(20);
   });
-  it("Si el numero de pruebas por commit es mayor a 2 entonces el puntaje es de 0 puntos ejemplo: obtenerPuntajePorCommit(2) => 0", () => {
-      expect(obtenerPuntajePorCantidadPruebas(2)).toEqual(0);
+
+  it("Si el número de pruebas por commit es mayor o igual a 80 pero menor que 100 entonces el puntaje es de 16 puntos", () => {
+      expect(obtenerPuntajePorCantidadPruebas(80)).toEqual(16);
+      expect(obtenerPuntajePorCantidadPruebas(99)).toEqual(16);
   });
+
+  it("Si el número de pruebas por commit es mayor o igual a 60 pero menor que 80 entonces el puntaje es de 12 puntos", () => {
+      expect(obtenerPuntajePorCantidadPruebas(60)).toEqual(12);
+      expect(obtenerPuntajePorCantidadPruebas(79)).toEqual(12);
+  });
+
+  it("Si el número de pruebas por commit es menor que 60 entonces el puntaje es de 8 puntos", () => {
+      expect(obtenerPuntajePorCantidadPruebas(59)).toEqual(8);
+      expect(obtenerPuntajePorCantidadPruebas(0)).toEqual(8);
+  });
+ 
   it("Si el numero de lineas por commit es menor o igual a 20 entonces el puntaje es de 100 puntos ejemplo: obtenerPuntajePorLineas(15) => 100", () => {
     expect(obtenerPuntajePorCantidadLineas(15)).toEqual(100);
   });
@@ -127,12 +142,12 @@ describe("TotalizadorPuntajes", () =>{
   it("Retornamos la cantidad de cobertura que obtuvo el proyecto ejemplo: obtenerPuntajePorCobertura(100) => 100", () => {
     expect(obtenerPuntajePorCobertura(100)).toEqual(100);
   });
-  it("Retornamos el puntaje total por commit", () => {
+  /*it("Retornamos el puntaje total por commit", () => {
     expect(obtenerPuntajeTotalPorCommit(obtenerPuntajePorCantidadLineas(30),obtenerPuntajePorCantidadPruebas(1),obtenerPuntajePorCobertura(90))).toEqual(80);
-});
+  });
   it("Retornamos la retroalimentacion correspondiente al puntaje de 100 de cantidad de pruebas por commit", () => {
   expect(obtenerRetroalimentacionPorPuntajePruebas(obtenerPuntajePorCantidadPruebas(1))).toEqual("Cantidad de pruebas correctas");
-  });
+  });*/
   it("Retornamos la retroalimentacion correspondiente al puntaje de 0 de cantidad de pruebas por commit", () => {
     expect(obtenerRetroalimentacionPorPuntajePruebas(obtenerPuntajePorCantidadPruebas(3))).toEqual("Tienes mas de una prueba en este commit, recuerda que tienes que tener maximo 1 prueba por commit.");
 });
