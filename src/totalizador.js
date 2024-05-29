@@ -28,10 +28,14 @@ function obtenerPuntajeTotalPorCommit(obtenerPuntajePorCantidadLineas,obtenerPun
     return (obtenerPuntajePorCantidadLineas + obtenerPuntajePorCantidadPruebas + obtenerPuntajePorCobertura) / 3;
    }     
 function obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas) {
-if(puntajePruebas == 100){
-    return "Cantidad de pruebas correctas";
-}else{
-    return "Tienes mas de una prueba en este commit, recuerda que tienes que tener maximo 1 prueba por commit.";
+  if (puntajePruebas === 20) {
+    return "Excelente";
+} else if (puntajePruebas ===16) {
+    return "Bueno";
+} else if (puntajePruebas ==12) {
+    return "Regular";
+} else {
+    return "Deficiente";
 }
 }
 function obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas) {

@@ -148,12 +148,12 @@ describe("TotalizadorPuntajes", () =>{
   it("Retornamos la cantidad de cobertura que obtuvo el proyecto ejemplo: obtenerPuntajePorCobertura(100) => 100", () => {
     expect(obtenerPuntajePorCobertura(100)).toEqual(100);
   });
-  /*it("Retornamos el puntaje total por commit", () => {
+ /* it("Retornamos el puntaje total por commit", () => {
     expect(obtenerPuntajeTotalPorCommit(obtenerPuntajePorCantidadLineas(30),obtenerPuntajePorCantidadPruebas(1),obtenerPuntajePorCobertura(90))).toEqual(80);
-  });
-  it("Retornamos la retroalimentacion correspondiente al puntaje de 100 de cantidad de pruebas por commit", () => {
-  expect(obtenerRetroalimentacionPorPuntajePruebas(obtenerPuntajePorCantidadPruebas(1))).toEqual("Cantidad de pruebas correctas");
   });*/
+  it("Retornamos la retroalimentacion correspondiente al puntaje de 100 de cantidad de pruebas por commit", () => {
+  expect(obtenerRetroalimentacionPorPuntajePruebas(obtenerPuntajePorCantidadPruebas(100))).toEqual("Excelente");
+  });
   
   it("Retornamos la retroalimentacion correspondiente al puntaje de 20 de cantidad de lineas por commit", () => {
     expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(19))).toEqual("Excelente");
