@@ -9,15 +9,17 @@ function obtenerPuntajePorCantidadPruebas(cantidadPruebas) {
 
         }
 function obtenerPuntajePorCantidadLineas(cantidadLineas) {
-    if (cantidadLineas < 20) {
+        if (cantidadLineas < 20) {
         return 20; // Excelente
-    } else if (cantidadLineas >= 20 && cantidadLineas <= 40) {
-        return 16; // Bueno
-    } else if (cantidadLineas > 40 && cantidadLineas <= 60) {
-        return 12; // Regular
-    } else {
-        return 8; // Deficiente
     }
+    if (cantidadLineas <= 40) {
+        return 16; // Bueno
+    }
+    if (cantidadLineas <= 60) {
+        return 12; // Regular
+    }
+    return 8; // Deficiente
+
   }
 function obtenerPuntajePorCobertura(cobertura) {
     return cobertura;
