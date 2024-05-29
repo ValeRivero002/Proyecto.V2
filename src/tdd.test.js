@@ -130,15 +130,21 @@ describe("TotalizadorPuntajes", () =>{
       expect(obtenerPuntajePorCantidadPruebas(0)).toEqual(8);
   });
  
-  it("Si el numero de lineas por commit es menor o igual a 20 entonces el puntaje es de 100 puntos ejemplo: obtenerPuntajePorLineas(15) => 100", () => {
-    expect(obtenerPuntajePorCantidadLineas(15)).toEqual(100);
-  });
-  it("Si el numero de lineas por commit es mayor a 20 entonces y menor a 35 el puntaje es de 50 puntos ejemplo: obtenerPuntajePorLineas(15) => 50", () => {
-    expect(obtenerPuntajePorCantidadLineas(30)).toEqual(50);
-  });
-  it("Si el numero de lineas por commit es mayor a 35 el puntaje es de 0 puntos ejemplo: obtenerPuntajePorLineas(15) => 0", () => {
-    expect(obtenerPuntajePorCantidadLineas(40)).toEqual(0);
-  });
+    it("Si el número de líneas por commit es menor a 20, el puntaje es de 20 puntos", () => {
+        expect(obtenerPuntajePorCantidadLineas(15)).toEqual(20);
+    });
+
+    it("Si el número de líneas por commit está entre 20 y 40, el puntaje es de 16 puntos", () => {
+        expect(obtenerPuntajePorCantidadLineas(30)).toEqual(16);
+    });
+
+    it("Si el número de líneas por commit está entre 41 y 60, el puntaje es de 12 puntos", () => {
+        expect(obtenerPuntajePorCantidadLineas(50)).toEqual(12);
+    });
+
+    it("Si el número de líneas por commit es mayor a 60, el puntaje es de 8 puntos", () => {
+        expect(obtenerPuntajePorCantidadLineas(70)).toEqual(8);
+    });
   it("Retornamos la cantidad de cobertura que obtuvo el proyecto ejemplo: obtenerPuntajePorCobertura(100) => 100", () => {
     expect(obtenerPuntajePorCobertura(100)).toEqual(100);
   });
@@ -148,17 +154,19 @@ describe("TotalizadorPuntajes", () =>{
   it("Retornamos la retroalimentacion correspondiente al puntaje de 100 de cantidad de pruebas por commit", () => {
   expect(obtenerRetroalimentacionPorPuntajePruebas(obtenerPuntajePorCantidadPruebas(1))).toEqual("Cantidad de pruebas correctas");
   });*/
-  it("Retornamos la retroalimentacion correspondiente al puntaje de 0 de cantidad de pruebas por commit", () => {
-    expect(obtenerRetroalimentacionPorPuntajePruebas(obtenerPuntajePorCantidadPruebas(3))).toEqual("Tienes mas de una prueba en este commit, recuerda que tienes que tener maximo 1 prueba por commit.");
+  
+  it("Retornamos la retroalimentacion correspondiente al puntaje de 20 de cantidad de lineas por commit", () => {
+    expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(19))).toEqual("Excelente");
 });
-  it("Retornamos la retroalimentacion correspondiente al puntaje de 100 de cantidad de lineas por commit", () => {
-  expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(15))).toEqual("Cantidad de lineas correctas");
+
+it("Retornamos la retroalimentacion correspondiente al puntaje de 16 de cantidad de lineas por commit", () => {
+    expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(40))).toEqual("Bueno");
 });
-  it("Retornamos la retroalimentacion correspondiente al puntaje de 50 de cantidad de lineas por commit", () => {
-  expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(30))).toEqual("Tienes una cantidad de lineas superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit");
+it("Retornamos la retroalimentacion correspondiente al puntaje de 12 de cantidad de lineas por commit", () => {
+  expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(60))).toEqual("Regular");
 });
-it("Retornamos la retroalimentacion correspondiente al puntaje de 0 de cantidad de lineas por commit", () => {
-  expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(40))).toEqual("Tienes una cantidad de lineas excesivamente superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit");
+it("Retornamos la retroalimentacion correspondiente al puntaje de 8 de cantidad de lineas por commit", () => {
+  expect(obtenerRetroalimentacionPorPuntajeLineas(obtenerPuntajePorCantidadLineas(65))).toEqual("Deficiente");
 });
 it("Retornamos la retroalimentacion correspondiente a la cobertura del commit para el puntaje menor 100", () => {
   expect(obtenerRetroalimentacionPorCobertura(obtenerPuntajePorCobertura(90))).toEqual("Tienes lineas de codigo que pueden mejorarse en el commit");

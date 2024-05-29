@@ -9,14 +9,15 @@ function obtenerPuntajePorCantidadPruebas(cantidadPruebas) {
 
         }
 function obtenerPuntajePorCantidadLineas(cantidadLineas) {
-var puntajeLineas = 0;
-     if(cantidadLineas <= 20){
-       puntajeLineas = 100;
-     }else if(cantidadLineas > 20 && cantidadLineas <= 35){
-       puntajeLineas = 50 
-     }else
-       puntajeLineas;
-     return puntajeLineas;
+    if (cantidadLineas < 20) {
+        return 20; // Excelente
+    } else if (cantidadLineas >= 20 && cantidadLineas <= 40) {
+        return 16; // Bueno
+    } else if (cantidadLineas > 40 && cantidadLineas <= 60) {
+        return 12; // Regular
+    } else {
+        return 8; // Deficiente
+    }
   }
 function obtenerPuntajePorCobertura(cobertura) {
     return cobertura;
@@ -32,12 +33,17 @@ if(puntajePruebas == 100){
 }
 }
 function obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas) {
-    if(puntajeLineas == 100){
-      return "Cantidad de lineas correctas";
-    }else if(puntajeLineas == 50){
-        return "Tienes una cantidad de lineas superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit";
-    }else
-    return "Tienes una cantidad de lineas excesivamente superior a lo recomendado, recuerda que maximo tienes que tener 20 lineas por commit";
+  if (puntajeLineas === 20) {
+        return "Excelente";
+    } else if (puntajeLineas === 16) {
+        return "Bueno";
+    } else if (puntajeLineas === 12) {
+        return "Regular";
+    } else if (puntajeLineas === 8) {
+        return "Deficiente";
+    } else {
+        return "Puntaje no válido";
+    }
   }
 function obtenerRetroalimentacionPorCobertura(cobertura) {
 if(cobertura < 100){
