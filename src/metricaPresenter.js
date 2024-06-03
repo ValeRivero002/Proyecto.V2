@@ -1,4 +1,4 @@
-import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura} from "./tdd.js";
+import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura,obtenerRetroalimentacionPorCoberturadePruebas} from "./tdd.js";
 import { obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura, obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura} from "./totalizador.js";
 
 
@@ -36,7 +36,7 @@ const puntajeTotal = obtenerPuntajeTotalPorCommit(puntajeLineas, puntajePruebas,
 // Obtener la retroalimentación para cada puntaje
 const retroalimentacionPruebas = obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas);
 const retroalimentacionLineas = obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas);
-const retroalimentacionCobertura = obtenerRetroalimentacionPorCobertura(puntajeCobertura);
+const retroalimentacionCobertura = obtenerRetroalimentacionPorCoberturadePruebas(puntajeCobertura);
 
 // Calcula la suma de los puntajes totales
 sumaPuntajesTotales += puntajeTotal;

@@ -175,3 +175,12 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
   expect(obtenerRetroalimentacionPorCobertura(obtenerPuntajePorCobertura(90))).toEqual("Tienes lineas de codigo que pueden mejorarse en el commit");
 }); 
   });
+
+  import { obtenerRetroalimentacionPorCoberturadePruebas } from "./tdd.js";
+
+  describe("Retroalimentación por cobertura de pruebas", () => {
+    it("debería devolver 'Excelente' si la cobertura es mayor que 90%", () => {
+      expect(obtenerRetroalimentacionPorCoberturadePruebas(91)).toEqual("Excelente");
+      expect(obtenerRetroalimentacionPorCoberturadePruebas(95)).toEqual("Excelente");
+    });
+  });

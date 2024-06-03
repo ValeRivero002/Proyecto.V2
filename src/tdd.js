@@ -73,3 +73,9 @@ export function ObtenerCobertura(cobertura) {
   return cobertura;
 } 
 
+export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
+  if (cobertura > 90) {
+    return "Excelente";
+  }
+  
+}
