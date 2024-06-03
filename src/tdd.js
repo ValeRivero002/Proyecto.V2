@@ -88,5 +88,7 @@ export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
 export function obtenerPuntajePorComplejidad(complejidad) {
   if (complejidad < 10) {
     return "Excelente";
-  }
+  } else if (complejidad < 20) {
+    return "Bueno";
+  } 
 }

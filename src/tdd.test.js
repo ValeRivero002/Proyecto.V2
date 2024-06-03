@@ -204,4 +204,7 @@ describe("obtenerPuntajePorComplejidad", () => {
   it("debería devolver 'Excelente' para baja complejidad (por debajo de 10)", () => {
     expect(obtenerPuntajePorComplejidad(5)).toEqual("Excelente");
   });
+  it("debería devolver 'Bueno' para moderada complejidad (entre 10 y 20)", () => {
+    expect(obtenerPuntajePorComplejidad(15)).toEqual("Bueno");
+  });
 });
