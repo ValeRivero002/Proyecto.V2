@@ -89,14 +89,15 @@ export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
   }
 }
 export function obtenerPuntajePorComplejidad(complejidad) {
-  if (complejidad < 10) {
-    return "Excelente";
-  } else if (complejidad < 20) {
-    return "Bueno";
-  } else if (complejidad < 30) {
-    return "Regular";
-  }
-  else {
-    return "Deficiente";
+  switch (true) {
+    case (complejidad < 10):
+      return "Excelente";
+    case (complejidad < 20):
+      return "Bueno";
+    case (complejidad < 30):
+      return "Regular";
+    default:
+      return "Deficiente";
   }
 }
+
