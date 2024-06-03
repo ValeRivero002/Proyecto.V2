@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas} from "./tdd";
+import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas, obtenerPuntajePorComplejidad} from "./tdd";
 import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura} from "./totalizador.js";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
@@ -198,3 +198,10 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
       expect(obtenerRetroalimentacionPorCoberturadePruebas(50)).toEqual("Deficiente");
     });
   });
+
+
+describe("obtenerPuntajePorComplejidad", () => {
+  it("debería devolver 'Excelente' para baja complejidad (por debajo de 10)", () => {
+    expect(obtenerPuntajePorComplejidad(5)).toEqual("Excelente");
+  });
+});

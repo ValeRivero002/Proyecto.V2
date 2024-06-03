@@ -85,3 +85,8 @@ export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
       return "Deficiente";
   }
 }
+export function obtenerPuntajePorComplejidad(complejidad) {
+  if (complejidad < 10) {
+    return "Excelente";
+  }
+}
