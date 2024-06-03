@@ -84,5 +84,7 @@ export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
   else if (cobertura >= 70 && cobertura <= 79) {
     return "Regular";
   }
-  
+  else {
+    return "Deficiente";
+  }
 }
