@@ -210,4 +210,7 @@ describe("obtenerPuntajePorComplejidad", () => {
   it("debería devolver 'Regular' para alta complejidad (entre 20 y 30)", () => {
     expect(obtenerPuntajePorComplejidad(25)).toEqual("Regular");
   });
+  it("debería devolver 'Deficiente' para muy alta complejidad (mayor de 30)", () => {
+    expect(obtenerPuntajePorComplejidad(35)).toEqual("Deficiente");
+  });
 });

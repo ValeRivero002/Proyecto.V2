@@ -96,4 +96,7 @@ export function obtenerPuntajePorComplejidad(complejidad) {
   } else if (complejidad < 30) {
     return "Regular";
   }
+  else {
+    return "Deficiente";
+  }
 }
