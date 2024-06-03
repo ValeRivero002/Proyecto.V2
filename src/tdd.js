@@ -74,17 +74,14 @@ export function ObtenerCobertura(cobertura) {
 } 
 
 export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
-  if (cobertura > 90) {
-    return "Excelente";
-  }
-
-  else if (cobertura >= 80 && cobertura <= 90) {
-    return "Bueno";
-  }
-  else if (cobertura >= 70 && cobertura <= 79) {
-    return "Regular";
-  }
-  else {
-    return "Deficiente";
+  switch (true) {
+    case (cobertura > 90):
+      return "Excelente";
+    case (cobertura >= 80):
+      return "Bueno";
+    case (cobertura >= 70):
+      return "Regular";
+    default:
+      return "Deficiente";
   }
 }
