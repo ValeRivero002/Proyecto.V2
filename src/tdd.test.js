@@ -183,4 +183,9 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
       expect(obtenerRetroalimentacionPorCoberturadePruebas(91)).toEqual("Excelente");
       expect(obtenerRetroalimentacionPorCoberturadePruebas(95)).toEqual("Excelente");
     });
+    it("debería devolver 'Bueno' si la cobertura está entre 80% y 90%", () => {
+    expect(obtenerRetroalimentacionPorCoberturadePruebas(80)).toEqual("Bueno");
+    expect(obtenerRetroalimentacionPorCoberturadePruebas(85)).toEqual("Bueno");
+    expect(obtenerRetroalimentacionPorCoberturadePruebas(90)).toEqual("Bueno");
+  });
   });
