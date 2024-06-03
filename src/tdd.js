@@ -81,5 +81,8 @@ export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
   else if (cobertura >= 80 && cobertura <= 90) {
     return "Bueno";
   }
+  else if (cobertura >= 70 && cobertura <= 79) {
+    return "Regular";
+  }
   
 }
