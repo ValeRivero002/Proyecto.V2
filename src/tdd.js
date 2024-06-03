@@ -72,6 +72,9 @@ export function ObtenerCantidadLineas(cantidadLineas) {
 export function ObtenerCobertura(cobertura) {
   return cobertura;
 } 
+export function ObtenerComplejidad(complejidad) {
+  return complejidad;
+}
 
 export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
   switch (true) {
@@ -90,5 +93,7 @@ export function obtenerPuntajePorComplejidad(complejidad) {
     return "Excelente";
   } else if (complejidad < 20) {
     return "Bueno";
-  } 
+  } else if (complejidad < 30) {
+    return "Regular";
+  }
 }

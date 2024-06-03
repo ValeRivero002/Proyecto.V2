@@ -1,4 +1,4 @@
-import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura,obtenerRetroalimentacionPorCoberturadePruebas} from "./tdd.js";
+import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura,obtenerRetroalimentacionPorCoberturadePruebas,ObtenerComplejidad} from "./tdd.js";
 import { obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura, obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura} from "./totalizador.js";
 import { obtenerPuntajePorComplejidad } from "./tdd.js";
 
@@ -18,20 +18,20 @@ form.addEventListener("submit", (event) => {
   const cantidadPruebas = parseInt(document.querySelector("#cantidad-pruebas").value);
   const cantidadLineas = parseInt(document.querySelector("#cantidad-lineas").value);
   const cobertura = parseFloat(document.querySelector("#cobertura").value);
-  
+  const complejidad = parseInt(document.querySelector("#complejidad").value);
 
   // Obtener los valores de las métricas
   const commits = ObtenerCantidadCommits(cantidad);
   const pruebas = ObtenerCantidadPruebas(cantidadPruebas);
   const lineas = ObtenerCantidadLineas(cantidadLineas);
   const cov = ObtenerCobertura(cobertura);
-  const complejidad = parseInt(document.querySelector("#complejidad").value);
-  const puntajeComplejidad = obtenerPuntajePorComplejidad(complejidad);
+  const complejidadTotal = ObtenerComplejidad(complejidad);
 
 //Calcular los puntajes de los commits
 const puntajePruebas = obtenerPuntajePorCantidadPruebas(pruebas);
 const puntajeLineas = obtenerPuntajePorCantidadLineas(lineas);
 const puntajeCobertura = obtenerPuntajePorCobertura(cov);
+const puntajeComplejidad = ObtenerComplejidad(complejidadTotal);
 
   // Calcular el puntaje total por commit
 const puntajeTotal = obtenerPuntajeTotalPorCommit(puntajeLineas, puntajePruebas, puntajeCobertura,puntajeComplejidad);
@@ -40,7 +40,7 @@ const puntajeTotal = obtenerPuntajeTotalPorCommit(puntajeLineas, puntajePruebas,
 const retroalimentacionPruebas = obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas);
 const retroalimentacionLineas = obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas);
 const retroalimentacionCobertura = obtenerRetroalimentacionPorCoberturadePruebas(puntajeCobertura);
-
+const retroalimentacionComplejidad = obtenerPuntajePorComplejidad(puntajeComplejidad);
 // Calcula la suma de los puntajes totales
 sumaPuntajesTotales += puntajeTotal;
 
@@ -60,8 +60,9 @@ newRow.innerHTML = `
      <td>${pruebas}</td>
      <td>${lineas}</td>
      <td>${cov}</td>
+     <td>${puntajeComplejidad}</td>
      <td>${puntajeTotal}</td>
-     <td>Cantidad de Pruebas: ${retroalimentacionPruebas}<br>Cantidad de Lineas: ${retroalimentacionLineas}<br>Cobertura: ${retroalimentacionCobertura}<br>Complejidad: ${obtenerPuntajePorComplejidad}</td>
+     <td>Cantidad de Pruebas: ${retroalimentacionPruebas}<br>Cantidad de Lineas: ${retroalimentacionLineas}<br>Cobertura: ${retroalimentacionCobertura}<br>Complejidad: ${retroalimentacionComplejidad}</td>
      <td><button class="eliminar-button">Eliminar</button></td>
 `;
 
