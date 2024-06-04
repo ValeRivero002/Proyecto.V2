@@ -1,4 +1,4 @@
-import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura,obtenerRetroalimentacionPorCoberturadePruebas,ObtenerComplejidad} from "./tdd.js";
+import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura, ObtenerDia, obtenerRetroalimentacionPorCoberturadePruebas,ObtenerComplejidad} from "./tdd.js";
 import { obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura, obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura} from "./totalizador.js";
 import { obtenerPuntajePorComplejidad } from "./tdd.js";
 
@@ -14,15 +14,18 @@ const puntajeComplejidadDiv = document.getElementById("puntaje-complejidad");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   
-  const fecha = document.getElementById('fecha').value;
+  const dia = parseInt(document.querySelector("#dia").value);
   const cantidad = parseInt(document.querySelector("#cantidad").value);
   const cantidadPruebas = parseInt(document.querySelector("#cantidad-pruebas").value);
   const cantidadLineas = parseInt(document.querySelector("#cantidad-lineas").value);
   const cobertura = parseFloat(document.querySelector("#cobertura").value);
   const complejidad = parseInt(document.querySelector("#complejidad").value);
 
+ 
+
+
   // Obtener los valores de las métricas
-  const frecuencia = ObtenerFecha(fecha);
+  const frecuencia = ObtenerDia(dia);
   const commits = ObtenerCantidadCommits(cantidad);
   const pruebas = ObtenerCantidadPruebas(cantidadPruebas);
   const lineas = ObtenerCantidadLineas(cantidadLineas);
@@ -57,7 +60,8 @@ puntajeTotalProyectoDiv.textContent = `Puntaje total del proyecto: ${promedioPun
 // Crear una nueva fila en la tabla con los valores de las métricas y el puntaje total
 const newRow = document.createElement("tr");
 newRow.innerHTML = `
-     
+
+     <td>${frecuencia}</td>
      <td>${commits}</td>
      <td>${pruebas}</td>
      <td>${lineas}</td>
