@@ -12,10 +12,10 @@ function obtenerPuntajePorCantidadLineas(cantidadLineas) {
         if (cantidadLineas < 20) {
         return 20; // Excelente
     }
-    if (cantidadLineas <= 40) {
+    if (cantidadLineas <= 40 && cantidadLineas >= 20) {
         return 16; // Bueno
     }
-    if (cantidadLineas <= 60) {
+    if (cantidadLineas <= 60 && cantidadLineas > 40) {
         return 12; // Regular
     }
     return 8; // Deficiente
