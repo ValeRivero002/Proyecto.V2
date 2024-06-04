@@ -126,6 +126,8 @@ export function obtenerRetroalimentacionFinalPorFrecuencia(diferencia) {
     return "Bueno"
   }else if(diferencia > 2 && diferencia < 5){
     return "Regular"
+  }else if(diferencia > 4 && diferencia < 8){
+    return "Deficiente"
   }
   
 }
