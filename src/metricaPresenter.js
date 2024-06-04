@@ -1,8 +1,9 @@
-import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura, ObtenerDia, obtenerRetroalimentacionPorCoberturadePruebas,ObtenerComplejidad} from "./tdd.js";
+import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura, ObtenerDia, obtenerRetroalimentacionPorCoberturadePruebas,ObtenerComplejidad,calcularMayorDiferenciaDias} from "./tdd.js";
 import { obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura, obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura} from "./totalizador.js";
 import { obtenerPuntajePorComplejidad } from "./tdd.js";
 
 const puntajeTotalProyectoDiv = document.getElementById('puntaje-total-proyecto');
+const retroalimentacionFrecuenciaDiv = document.getElementById('frecuencia-proyecto');
 
 let sumaPuntajesTotales = 0;
 
@@ -10,7 +11,6 @@ let sumaPuntajesTotales = 0;
 const form = document.querySelector("#calcular-form");
 const tablaDatosBody = document.querySelector("#datos-ingresados-body");
 const puntajeComplejidadDiv = document.getElementById("puntaje-complejidad");
-
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   
@@ -21,9 +21,6 @@ form.addEventListener("submit", (event) => {
   const cobertura = parseFloat(document.querySelector("#cobertura").value);
   const complejidad = parseInt(document.querySelector("#complejidad").value);
 
- 
-
-
   // Obtener los valores de las métricas
   const frecuencia = ObtenerDia(dia);
   const commits = ObtenerCantidadCommits(cantidad);
@@ -32,35 +29,31 @@ form.addEventListener("submit", (event) => {
   const cov = ObtenerCobertura(cobertura);
   const complejidadTotal = ObtenerComplejidad(complejidad);
 
-//Calcular los puntajes de los commits
-const puntajePruebas = obtenerPuntajePorCantidadPruebas(pruebas);
-const puntajeLineas = obtenerPuntajePorCantidadLineas(lineas);
-const puntajeCobertura = obtenerPuntajePorCobertura(cov);
-const puntajeComplejidad = ObtenerComplejidad(complejidadTotal);
+  // Calcular los puntajes de los commits
+  const puntajePruebas = obtenerPuntajePorCantidadPruebas(pruebas);
+  const puntajeLineas = obtenerPuntajePorCantidadLineas(lineas);
+  const puntajeCobertura = obtenerPuntajePorCobertura(cov);
+  const puntajeComplejidad = ObtenerComplejidad(complejidadTotal);
 
   // Calcular el puntaje total por commit
-const puntajeTotal = obtenerPuntajeTotalPorCommit(puntajeLineas, puntajePruebas, puntajeCobertura,puntajeComplejidad);
+  const puntajeTotal = obtenerPuntajeTotalPorCommit(puntajeLineas, puntajePruebas, puntajeCobertura,puntajeComplejidad);
 
-// Obtener la retroalimentación para cada puntaje
-const retroalimentacionPruebas = obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas);
-const retroalimentacionLineas = obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas);
-const retroalimentacionCobertura = obtenerRetroalimentacionPorCoberturadePruebas(puntajeCobertura);
-const retroalimentacionComplejidad = obtenerPuntajePorComplejidad(puntajeComplejidad);
-// Calcula la suma de los puntajes totales
-sumaPuntajesTotales += puntajeTotal;
+  // Obtener la retroalimentación para cada puntaje
+  const retroalimentacionPruebas = obtenerRetroalimentacionPorPuntajePruebas(puntajePruebas);
+  const retroalimentacionLineas = obtenerRetroalimentacionPorPuntajeLineas(puntajeLineas);
+  const retroalimentacionCobertura = obtenerRetroalimentacionPorCoberturadePruebas(puntajeCobertura);
+  const retroalimentacionComplejidad = obtenerPuntajePorComplejidad(puntajeComplejidad);
 
-// Calcula el promedio de los puntajes totales
-const cantidadFilas = tablaDatosBody.children.length + 1;
-const promedioPuntajesTotales = sumaPuntajesTotales / cantidadFilas;
+  // Calcula la suma de los puntajes totales
+  sumaPuntajesTotales += puntajeTotal;
 
-// Muestra el puntaje total del proyecto en el div correspondiente
-puntajeTotalProyectoDiv.textContent = `Puntaje total del proyecto: ${promedioPuntajesTotales}`;
+  // Calcula el promedio de los puntajes totales
+  const cantidadFilas = tablaDatosBody.children.length + 1;
+  const promedioPuntajesTotales = sumaPuntajesTotales / cantidadFilas;
 
-
-// Crear una nueva fila en la tabla con los valores de las métricas y el puntaje total
-const newRow = document.createElement("tr");
-newRow.innerHTML = `
-
+  // Crear una nueva fila en la tabla con los valores de las métricas y el puntaje total
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
      <td>${frecuencia}</td>
      <td>${commits}</td>
      <td>${pruebas}</td>
@@ -70,14 +63,20 @@ newRow.innerHTML = `
      <td>${puntajeTotal}</td>
      <td>Cantidad de Pruebas: ${retroalimentacionPruebas}<br>Cantidad de Lineas: ${retroalimentacionLineas}<br>Cobertura: ${retroalimentacionCobertura}<br>Complejidad: ${retroalimentacionComplejidad}</td>
      <td><button class="eliminar-button">Eliminar</button></td>
-`;
+  `;
 
-// Agregar la nueva fila a la tabla
-tablaDatosBody.appendChild(newRow);
+  // Agregar la nueva fila a la tabla
+  tablaDatosBody.appendChild(newRow);
+
   // Agregar evento de click al botón de eliminar
   newRow.querySelector(".eliminar-button").addEventListener("click", () => {
       tablaDatosBody.removeChild(newRow);
   });
 
-  
+  const mayorDiferenciaDias = calcularMayorDiferenciaDias(tablaDatosBody);
+
+  // Muestra el puntaje total del proyecto y la frecuencia en los divs correspondientes
+  retroalimentacionFrecuenciaDiv.textContent =  `freceuncia del proyecto: ${mayorDiferenciaDias}`;
+  puntajeTotalProyectoDiv.textContent = `Puntaje total del proyecto: ${promedioPuntajesTotales}`;
 });
+

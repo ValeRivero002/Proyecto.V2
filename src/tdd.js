@@ -79,6 +79,47 @@ export function ObtenerDia(dia) {
   return dia;
 }
 
+export function calcularMayorDiferenciaDias(tablaDatosBody) {
+  const filas = tablaDatosBody.querySelectorAll("tr");
+  
+  if (filas.length === 0) {
+    // Si no hay filas, la frecuencia es 1
+    return 1;
+  } else if (filas.length === 1) {
+    // Si solo hay una fila, la frecuencia es 1
+    return 1;
+  } else {
+    // Creamos un array para almacenar las diferencias entre días
+    const diferencias = [];
+    
+    // Calculamos la diferencia entre cada par de días consecutivos
+    for (let i = 1; i < filas.length; i++) {
+      const diaActual = parseInt(filas[i].querySelector("td:nth-child(1)").textContent);
+      const diaAnterior = parseInt(filas[i - 1].querySelector("td:nth-child(1)").textContent);
+      const diferencia = diaActual - diaAnterior;
+      
+      diferencias.push(diferencia);
+    }
+
+    // Obtenemos el último día ingresado
+    const ultimoDia = parseInt(filas[filas.length - 1].querySelector("td:nth-child(1)").textContent);
+    
+    // Obtenemos el día anterior al último día ingresado
+    const diaAnteriorUltimo = parseInt(filas[filas.length - 2].querySelector("td:nth-child(1)").textContent);
+    
+    // Calculamos la diferencia entre el último día ingresado y el día anterior
+    const diferenciaUltimoDia = ultimoDia - diaAnteriorUltimo;
+    
+    diferencias.push(diferenciaUltimoDia);
+
+    // Encontramos la mayor diferencia entre días
+    const mayorDiferencia = Math.max(...diferencias);
+    
+    return mayorDiferencia;
+  }
+}
+
+
 
 
 
