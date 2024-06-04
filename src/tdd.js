@@ -75,6 +75,10 @@ export function ObtenerCobertura(cobertura) {
 export function ObtenerComplejidad(complejidad) {
   return complejidad;
 }
+export function ObtenerFecha(fecha) {
+  return fecha;
+}
+
 
 export function obtenerRetroalimentacionPorCoberturadePruebas(cobertura) {
   switch (true) {

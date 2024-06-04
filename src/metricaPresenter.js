@@ -14,6 +14,7 @@ const puntajeComplejidadDiv = document.getElementById("puntaje-complejidad");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   
+  const fecha = document.getElementById('fecha').value;
   const cantidad = parseInt(document.querySelector("#cantidad").value);
   const cantidadPruebas = parseInt(document.querySelector("#cantidad-pruebas").value);
   const cantidadLineas = parseInt(document.querySelector("#cantidad-lineas").value);
@@ -21,6 +22,7 @@ form.addEventListener("submit", (event) => {
   const complejidad = parseInt(document.querySelector("#complejidad").value);
 
   // Obtener los valores de las métricas
+  const frecuencia = ObtenerFecha(fecha);
   const commits = ObtenerCantidadCommits(cantidad);
   const pruebas = ObtenerCantidadPruebas(cantidadPruebas);
   const lineas = ObtenerCantidadLineas(cantidadLineas);
