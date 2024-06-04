@@ -1,4 +1,4 @@
-import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas, obtenerPuntajePorComplejidad} from "./tdd";
+import { agregarProyecto, eliminarProyecto,ObtenerCantidadCommits,ObtenerCantidadPruebas ,ObtenerCantidadLineas,ObtenerCobertura,crearBoton, redirigirAMetricas, obtenerPuntajePorComplejidad, obtenerRetroalimentacionFinalPorFrecuencia,obtenerRetroalimentacionPorCoberturadePruebas} from "./tdd";
 import {obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura, obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura} from "./totalizador.js";
 // Mock del DOM utilizando JSDOM
 const { JSDOM } = require('jsdom');
@@ -176,7 +176,7 @@ it("Retornamos la retroalimentacion correspondiente a la cobertura del commit pa
 }); 
   });
 
-  import { obtenerRetroalimentacionPorCoberturadePruebas } from "./tdd.js";
+ 
 
   describe("Retroalimentación por cobertura de pruebas", () => {
     it("debería devolver 'Excelente' si la cobertura es mayor que 90%", () => {
@@ -213,4 +213,12 @@ describe("obtenerPuntajePorComplejidad", () => {
   it("debería devolver 'Deficiente' para muy alta complejidad (mayor de 30)", () => {
     expect(obtenerPuntajePorComplejidad(35)).toEqual("Deficiente");
   });
+});
+
+describe("obtenerPuntajePorFrecuencia", () => {
+  it("debería devolver 'Excelente' para < 1 dias", () => {
+    expect(obtenerRetroalimentacionFinalPorFrecuencia(1)).toEqual("Excelente");
+  });
+  
+  
 });

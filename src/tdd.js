@@ -119,7 +119,12 @@ export function calcularMayorDiferenciaDias(tablaDatosBody) {
   }
 }
 
-
+export function obtenerRetroalimentacionFinalPorFrecuencia(diferencia) {
+  if(diferencia < 2){
+    return "Excelente"
+  }
+  
+}
 
 
 
