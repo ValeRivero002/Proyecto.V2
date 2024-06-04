@@ -122,6 +122,8 @@ export function calcularMayorDiferenciaDias(tablaDatosBody) {
 export function obtenerRetroalimentacionFinalPorFrecuencia(diferencia) {
   if(diferencia < 2){
     return "Excelente"
+  }else if(diferencia > 1 && diferencia < 3){
+    return "Bueno"
   }
   
 }

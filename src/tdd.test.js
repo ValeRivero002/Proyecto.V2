@@ -219,6 +219,9 @@ describe("obtenerPuntajePorFrecuencia", () => {
   it("debería devolver 'Excelente' para < 1 dias", () => {
     expect(obtenerRetroalimentacionFinalPorFrecuencia(1)).toEqual("Excelente");
   });
+  it("debería devolver 'Excelente' para < 2 dias", () => {
+    expect(obtenerRetroalimentacionFinalPorFrecuencia(2)).toEqual("Bueno");
+  });
   
   
 });
