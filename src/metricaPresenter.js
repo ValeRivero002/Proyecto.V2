@@ -1,5 +1,5 @@
-import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura, ObtenerDia, obtenerRetroalimentacionPorCoberturadePruebas,ObtenerComplejidad,calcularMayorDiferenciaDias} from "./tdd.js";
-import { obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerRetroalimentacionPorCobertura, obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura} from "./totalizador.js";
+import { ObtenerCantidadCommits, ObtenerCantidadPruebas, ObtenerCantidadLineas, ObtenerCobertura, ObtenerDia, obtenerRetroalimentacionPorCoberturadePruebas,ObtenerComplejidad,calcularMayorDiferenciaDias,obtenerRetroalimentacionFinalPorFrecuencia} from "./tdd.js";
+import { obtenerPuntajeTotalPorCommit, obtenerRetroalimentacionPorPuntajePruebas, obtenerRetroalimentacionPorPuntajeLineas, obtenerPuntajePorCantidadPruebas, obtenerPuntajePorCantidadLineas, obtenerPuntajePorCobertura} from "./totalizador.js";
 import { obtenerPuntajePorComplejidad } from "./tdd.js";
 
 const puntajeTotalProyectoDiv = document.getElementById('puntaje-total-proyecto');
@@ -73,7 +73,7 @@ form.addEventListener("submit", (event) => {
       tablaDatosBody.removeChild(newRow);
   });
 
-  const mayorDiferenciaDias = calcularMayorDiferenciaDias(tablaDatosBody);
+  const mayorDiferenciaDias = obtenerRetroalimentacionFinalPorFrecuencia(calcularMayorDiferenciaDias(tablaDatosBody));
 
   // Muestra el puntaje total del proyecto y la frecuencia en los divs correspondientes
   retroalimentacionFrecuenciaDiv.textContent =  `freceuncia del proyecto: ${mayorDiferenciaDias}`;
